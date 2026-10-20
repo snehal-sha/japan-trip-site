@@ -300,6 +300,24 @@ body{background:radial-gradient(var(--pattern) 1.2px,transparent 1.3px) 0 0/22px
 nav.tabs{background:rgba(250,243,234,.9)}
 .tiles-dark{filter:none}
 
+/* planner */
+.est{color:var(--pick);font-weight:600}
+.warn{color:var(--crit);font-size:.8rem;margin-top:3px}
+.warn-inline{color:var(--crit)}.good-inline{color:var(--good)}
+.changes{background:var(--surface-2);border-radius:10px;padding:8px 12px;font-size:.86rem;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:.8rem;background:var(--surface-2);border-radius:8px;padding:8px 10px;margin-top:6px}
+.pc ul{margin:2px 0 0;padding-left:16px}
+@media (max-width:520px){.pc{grid-template-columns:1fr}}
+.pwbox{position:fixed;left:50%;top:40%;transform:translate(-50%,-50%);background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;z-index:45;width:min(92vw,360px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.pwbox[hidden]{display:none}
+.pwbox input{width:100%;padding:9px 10px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);margin:8px 0}
+#lock{margin-top:6px}
+
+.lbl{font:600 10px/1 var(--body);color:var(--fg);white-space:nowrap;text-shadow:0 0 3px var(--surface),0 0 3px var(--surface),0 0 3px var(--surface);pointer-events:none;width:auto!important;height:auto!important}
+.lbl.sta{font-weight:500;font-size:9.5px;color:var(--muted)}
+.lbl.place{font-size:11px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+.lbl.place.big{font-size:13px;color:var(--fg)}
+
 </style>
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
 <defs>
@@ -333,7 +351,7 @@ nav.tabs{background:rgba(250,243,234,.9)}
 <symbol id="k-sparkle" viewBox="0 0 64 64"><path d="M32 6l5 18 18 5-18 5-5 18-5-18-18-5 18-5z" fill="#ffd166"/><path d="M50 40l2 7 7 2-7 2-2 7-2-7-7-2 7-2z" fill="#ff8aa8"/></symbol>
 </svg>
 
-<header class="top"><div class="wrap"><div class="hero-grid"><div><span class="eyebrow">Nov 16 – 25, 2026 · solo · Tokyo, Hakone, Fuji, Izu, Kyoto, Nara, Osaka</span><h1>Snehal in Japan</h1><p class="muted" style="margin:6px 0 10px;max-width:46ch">Neon, touge roads, maple temples, onsen, and a used Fujifilm to shoot it all. Your lists, mapped and timed.</p><div class="countdown"><span id="countdown"></span> · <span id="sync" class="muted">Loading</span></div></div>
+<header class="top"><div class="wrap"><div class="hero-grid"><div><span class="eyebrow">Nov 16 – 25, 2026 · solo · Tokyo, Hakone, Fuji, Izu, Kyoto, Nara, Osaka</span><h1>Snehal in Japan</h1><p class="muted" style="margin:6px 0 10px;max-width:46ch">Neon, touge roads, maple temples, onsen, and a used Fujifilm to shoot it all. Your lists, mapped and timed.</p><div class="countdown"><span id="countdown"></span> · <span id="sync" class="muted">Loading</span></div><div id="lock"></div></div>
 <div class="collage" aria-hidden="true"><div class="ph"><img src="img/h1.jpg" alt=""></div><div class="ph"><img src="img/h2.jpg" alt=""></div><div class="ph"><img src="img/h3.jpg" alt=""></div><svg class="st a"><use href="#k-onigiri"/></svg><svg class="st b"><use href="#k-neko"/></svg><svg class="st c"><use href="#k-momiji"/></svg></div></div></div></header>
 <nav class="tabs"><div class="wrap" id="tabs"></div></nav>
 <main class="wrap">
@@ -348,6 +366,7 @@ nav.tabs{background:rgba(250,243,234,.9)}
 </main>
 <div class="scrim" id="scrim" hidden></div>
 <div class="drawer" id="drawer" hidden><button class="btn small close" id="drawer-close" aria-label="Close">Close</button><div id="drawer-body"></div></div>
+<div class="pwbox" id="pw" hidden><b>Edit password</b><p class="small muted" style="margin:4px 0">Ticks, switches and budget edits are locked on this device until the password is entered once.</p><input id="pwin" type="password" autocomplete="off" placeholder="Password"><div id="pwerr" class="warn" hidden>Wrong password.</div><div class="pills"><button class="btn primary" id="pwok">Unlock</button><button class="btn" id="pwcancel">Cancel</button></div></div>
 <div class="toast" id="toast"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 <script>
@@ -2077,6 +2096,10 @@ window.DAYS = [
    {t:'13:45', ref:'p20', note:'Vintage circuit: Pal arcade, Kita-Kore building, Sokkyou. Saihōji on your shrine list is a 10 min detour south of the station.'},
    {t:'15:30', ref:'p69', note:'Flash Disc Ranch and Jet Set for vinyl; curry at Rojiura Curry Samurai if hungry.', travel:'Koenji → Shinjuku (Chuo) → Odakyu to Shimokitazawa, 25 min'},
    {t:'16:00', ref:'s80', opt:true, note:'Add: thrift by weight in the old bath house, 3 min from the station.'},
+   {t:'15:30', ref:'p03', opt:true, swap:'p69', note:'Sea instead of vintage: Odakyu from Shinjuku to Katase-Enoshima, 65 min; island temples, caves, sunset from the west cliffs, back by 19:30. Costs the Shimokitazawa hour and the Park Hyatt timing gets tight.'},
+   {t:'14:30', ref:'p58', opt:true, note:'Add: the small Saiho-ji temple on your shrine list, a 10-min walk south of Koenji station; 15 min there.'},
+   {t:'11:00', ref:'p22', opt:true, note:'Add: a wander of Nakano’s own streets (Sun Mall, the izakaya alleys) between the camera and Broadway.'},
+   {t:'17:30', ref:'p61', opt:true, note:'Add: Map Camera on the way back through Shinjuku to cross-check the price you paid at Fujiya; 20 min.'},
    {t:'Option', ref:'p06', opt:true, note:'Trees instead of more vintage: last entry 16:00, ¥500. Closed Mondays, open today.'},
    {t:'18:00', ref:'p77', note:'Arrive before 20:00 and there is no cover charge. One drink, the view, the jazz. Smart-casual.', travel:'Odakyu back to Shinjuku, walk 12 min to Park Hyatt'},
    {t:'Option', ref:'s84', opt:true, swap:'p77', note:'Benfiddich instead of the Park Hyatt: no view, better drinks, half the price. Closed Sundays, open Tuesday.'},
@@ -2154,6 +2177,10 @@ window.DAYS = [
   stops:[
    {t:'07:45', title:'Kintetsu Kyoto → Nara', note:'35 min, ¥760. Send the suitcase from Len to Nui (Tokyo) by takkyubin this morning (arrives Nov 23 evening), or keep it: a normal suitcase is fine on the Shinkansen.', travel:'Walk 20 min through Nara Park'},
    {t:'08:30', ref:'p57', note:'Great Buddha hall at opening, then the Nigatsu-do balcony. Deer crackers ¥200.'},
+   {t:'08:30', ref:'p11', opt:true, note:'Add: the Nara Park loop itself, deer and Kofuku-ji pagoda, as its own hour if you want slow.'},
+   {t:'08:00', ref:'p13', opt:true, swap:'p57', note:'Ise instead of Nara: Kintetsu limited express Kyoto → Ise-shi 2 h, the Naiku shrine and Okage-yokocho, then Ise → Osaka-Namba 2 h. Japan’s holiest shrine, but the whole day goes to trains and the Osaka evening starts at 19:00.'},
+   {t:'12:00', ref:'p56', opt:true, note:'Add: the tiny Tawaramoto shrine from your list, 25 min by Kintetsu from Yamato-Saidaiji on the way to Osaka; only if it means something to you.'},
+   {t:'07:30', ref:'p10', opt:true, swap:'p57', note:'Kanazawa instead of Nara and Osaka: Thunderbird Kyoto → Kanazawa 2 h 15, Kenroku-en, Kanazawa Castle, Omicho market, Higashi-chaya, back to Kyoto by 21:00, then the 06:00 Nozomi from Kyoto on Nov 23. A great garden day; you lose Osaka entirely and pay about ¥15,000 in trains.'},
    {t:'10:30', ref:'s45', opt:true, note:'Lantern shrine, 20 min further into the forest.'},
    {t:'11:30', ref:'s44', note:'Mochi pounding on the half hour; warabimochi and yomogi mochi from your eat list. Chasen whisks at the craft shops on this street.', travel:'Kintetsu Nara → Osaka-Namba, 40 min, ¥680'},
    {t:'13:30', ref:'s54', note:'Check in (early bag drop), then lunch at Kitan Hibiki if you want the burger (12:00–14:30).', travel:'Chuo line to Osakako, 20 min'},
@@ -2178,6 +2205,7 @@ window.DAYS = [
    {t:'13:00', ref:'s74', opt:true, swap:'p35', note:'Cut tatami with a katana instead of the goldfish: 2 h at HiSUi, book the 13:00 slot. Then Akihabara from 15:30.'},
    {t:'13:45', ref:'p39', opt:true, note:'Lunch-only yakiniku; open Mon/Wed/Thu/Fri 09:00–16:00. Call to confirm the holiday.', travel:'Metro to Akihabara, 20 min'},
    {t:'15:00', ref:'p76', note:'HHKB and Realforce on the keyboard floor, Tamagotchi, Casio; tax-refund desk per floor.'},
+   {t:'14:45', ref:'p74', opt:true, note:'Add: the Electric Town walk itself, Chuo-dori under the signs, gachapon halls and the radio alleys, 30 min before Yodobashi.'},
    {t:'15:45', ref:'s14', note:'LSD Dream Emulator and the PS1 shelf.', travel:'Walk 3 min'},
    {t:'15:45', ref:'s89', opt:true, swap:'s14', note:'Build a keyboard instead of hunting PS1 games: Yushakobo kits and a soldering bench, 1 h.'},
    {t:'16:00', ref:'s76', opt:true, note:'Add: 30 min of IEM demos with your own phone, two blocks away.'},
@@ -2213,6 +2241,23 @@ window.DAYS = [
    {t:'Menu G', ref:'s83', opt:true, note:'Afternoon G: kintsugi in Asakusa, 90 min, walking distance from the hostel.'},
    {t:'Menu H', ref:'s90', opt:true, note:'Afternoon H: latte art class in Shibuya, pairs with Menu A.'},
    {t:'Night', ref:'s92', opt:true, note:'Add: IMAX Laser GT in Ikebukuro for the last night, or a retro double bill at Shin-Bungeiza next door.'},
+   {t:'Day trip', ref:'p16', opt:true, swap:'p54', note:'Nikko instead of the Tokyo free day: Tobu limited express from Asakusa 2 h, Shinkyo bridge, Toshogu, back by 18:00 for Skytree. Foliage in Nikko is mostly over by Nov 24 and it costs about ¥6,000 in trains.'},
+   {t:'Menu I', ref:'p09', opt:true, note:'Afternoon I: the Koshu-kaido ginkgo avenue in Hachioji, 50 min from Shinjuku on the Chuo line; the festival was Nov 21–22 but the trees peak this week.'},
+   {t:'Menu J', ref:'p72', opt:true, note:'Afternoon J: BOOKOFF Super Bazaar in Omiya, 40 min north; games, watches, clothes by the kilo.'},
+   {t:'09:00', ref:'p59', opt:true, note:'Add: Sengaku-ji and the 47 ronin graves in Takanawa, 25 min from Tsukiji; 40 min there.'},
+   {t:'09:00', ref:'p29', opt:true, note:'Add: the graveyard itself inside Sengaku-ji; incense at the gate.'},
+   {t:'13:00', ref:'p46', opt:true, note:'Add: Seirinkan pizza lunch in Nakameguro (Menu C already includes it).'},
+   {t:'13:00', ref:'p51', opt:true, swap:'p46', note:'pizza marumo in Ebisu instead of Seirinkan: hotter ticket, longer queue.'},
+   {t:'13:00', ref:'p44', opt:true, swap:'p46', note:'Carlino’s instead of Seirinkan: tiny, Wed and Fri lunch only, so not open on Tuesday Nov 24; keep for a swap to another day.'},
+   {t:'13:00', ref:'p42', opt:true, swap:'p46', note:'Vento e Mare (Gotanda) instead of Seirinkan: closed Mon and Tue, so it needs a different day.'},
+   {t:'13:00', ref:'p43', opt:true, swap:'p46', note:'La Tripletta (Musashi-Koyama) instead of Seirinkan: open daily, 15 min walk from Togoshi Ginza.'},
+   {t:'13:00', ref:'p45', opt:true, swap:'p46', note:'400°C pizza in Kagurazaka instead: closed Tuesdays, so it needs a different day too.'},
+   {t:'16:30', ref:'p67', opt:true, note:'Add: Jujo Ginza shotengai in Kita-ku, the cheaper Togoshi; near Akabane standing bars.'},
+   {t:'Menu A', ref:'p68', opt:true, note:'Menu A detail: Mandarake Shibuya, 12:00–20:00, for the LSD Dream Emulator second attempt.'},
+   {t:'Menu A', ref:'p41', opt:true, note:'Menu A detail: Uobei conveyor sushi, off-peak 15:00–17:00, the non-fishy plates.'},
+   {t:'Menu A', ref:'p40', opt:true, note:'Menu A detail: CoCo Ichibanya curry as the cheap refuel.'},
+   {t:'19:00', ref:'p49', opt:true, note:'Add: Hard Rock Cafe Roppongi for the pin and a burger, 20 min from Skytree by Hibiya line.'},
+   {t:'18:00', ref:'p48', opt:true, note:'Add only with a reservation: Shinbashi Hoshino kaiseki, ¥40,000+, closed Sundays; near impossible without a concierge.'},
    {t:'15:45', ref:'p34', note:'Timed ticket for 15:45: daylight, sunset at 16:28, the night grid. Walk back along the Sumida river.', travel:'Walk 25 min along the river'},
    {t:'15:45', ref:'p04', note:'The river walk between Skytree and Asakusa, both directions.'},
    {t:'18:30', title:'Last dinner, pack, tax-refund prep', note:'Keep every tax-free receipt and the goods reachable in the suitcase for the customs check. Weigh the bag: 25 kg checked, 7 kg cabin on AirAsia. Reserve the Skyliner seat for 07:20.'}
@@ -2558,8 +2603,13 @@ function thumb(pp){return pp.file.replace('img/pl/','img/pl/t/');}
 function srcChip(p){return p.src==='you'?`<span class="chip you">Your list</span>`:`<span class="chip pick">Claude pick</span>`;}
 
 // ---------- state + storage ----------
-const STATE={checks:{},budget:{tier:'mid',rate:TRIP.rateINRperJPY,over:{}},expenses:[],updated:0};
-function merge(d){ if(!d||typeof d!=='object') return; if(d.checks) STATE.checks=Object.assign({},d.checks); if(d.budget) STATE.budget=Object.assign({tier:'mid',rate:TRIP.rateINRperJPY,over:{}},d.budget); if(Array.isArray(d.expenses)) STATE.expenses=d.expenses.slice(); if(d.updated) STATE.updated=d.updated; }
+const STATE={checks:{},order:{},budget:{tier:'mid',rate:TRIP.rateINRperJPY,over:{}},expenses:[],updated:0};
+const EDIT_PW='snehaljapan';
+function canEdit(){try{return localStorage.getItem('jt-edit')==='ok';}catch(e){return false;}}
+function setEdit(v){try{ if(v) localStorage.setItem('jt-edit','ok'); else localStorage.removeItem('jt-edit'); }catch(e){} renderHeader();}
+let pendingEdit=null;
+function requireEdit(fn){ if(canEdit()) return fn(); pendingEdit=fn; $('#pw').hidden=false; $('#scrim').hidden=false; const i=$('#pwin'); i.value=''; $('#pwerr').hidden=true; setTimeout(()=>i.focus(),50); }
+function merge(d){ if(!d||typeof d!=='object') return; if(d.checks) STATE.checks=Object.assign({},d.checks); if(d.budget) STATE.budget=Object.assign({tier:'mid',rate:TRIP.rateINRperJPY,over:{}},d.budget); if(Array.isArray(d.expenses)) STATE.expenses=d.expenses.slice(); if(d.order&&typeof d.order==='object') STATE.order=Object.assign({},d.order); if(d.updated) STATE.updated=d.updated; }
 let saveTimer=null, writeChain=Promise.resolve();
 const Store={docRef:null,
   async init(){
@@ -2604,7 +2654,7 @@ function openPlace(id){ const p=ALL[id]; if(!p) return; const dayFor=DAYS.filter
   ${pp&&pp.page?`<div class="src-note">Photo: <a target="_blank" rel="noopener" href="${esc(pp.page)}">${esc((pp.title||pp.page).slice(0,70))}</a></div>`:''}
   <div class="pills"><a class="btn small" target="_blank" rel="noopener" href="${esc(mapsLink(p))}">Open in Google Maps</a><a class="btn small" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${p.lat},${p.lng}&travelmode=transit">Directions here</a></div></div>`;
   $('#drawer').hidden=false; $('#scrim').hidden=false; }
-function closeDrawer(){$('#drawer').hidden=true; $('#scrim').hidden=true;}
+function closeDrawer(){$('#drawer').hidden=true; if($('#pw').hidden) $('#scrim').hidden=true;}
 
 // ---------- tabs ----------
 const TABS=[['today','Today'],['days','Days'],['map','Map'],['places','Places'],['shop','Shop & eat'],['check','Checklist'],['budget','Budget'],['guide','Guide']];
@@ -2613,30 +2663,59 @@ function show(tab,opts){ if(!TABS.some(t=>t[0]===tab)) tab='today'; current=tab;
 function renderCurrent(){ ({today:renderToday,days:renderDays,map:renderMap,places:renderPlaces,shop:renderShop,check:renderCheck,budget:renderBudget,guide:renderGuide})[current](); renderHeader(); }
 
 // ---------- header ----------
-function renderHeader(){ const t=todayJST(); const n=daysBetween(t,TRIP.start); let txt; if(n>0) txt=`<b>${n}</b> days to Haneda`; else if(t<=TRIP.end) txt=`Day <b>${daysBetween(TRIP.start,t)+1}</b> of 10 · ${niceDate(t)}`; else txt='Trip complete'; $('#countdown').innerHTML=txt; }
+function renderHeader(){ const lk=$('#lock'); if(lk) lk.innerHTML=canEdit()?`<button class="btn small" id="lockbtn">Editing on · lock</button>`:`<button class="btn small" id="lockbtn">View only · unlock to edit</button>`; const t=todayJST(); const n=daysBetween(t,TRIP.start); let txt; if(n>0) txt=`<b>${n}</b> days to Haneda`; else if(t<=TRIP.end) txt=`Day <b>${daysBetween(TRIP.start,t)+1}</b> of 10 · ${niceDate(t)}`; else txt='Trip complete'; $('#countdown').innerHTML=txt; }
 
 // ---------- day card ----------
+function costOf(p){ if(!p) return 0; if(p.cost!=null) return p.cost; const m=(p.use||'').match(/¥\s?([0-9][0-9,]{2,})/); if(m) return Number(m[1].replace(/,/g,'')); const t=((p.cat||'')+' '+(p.list||'')).toLowerCase(); if(/public bath/.test(t)) return 550; if(/hotel|hostel|inn|ryokan|station|car rental|district|ward|city|neighbourhood|street|market street|shopping street|road station|viewpoint|pass|island|river|bridge|avenue|shrine|festival/.test(t)) return 0; if(/temple|garden|park|cemetery/.test(t)) return 600; if(/museum|castle|aquarium|observation|digital art|theater|cinema/.test(t)) return 2200; if(/ramen|udon|curry|donburi|bakery|mochi|wagashi|confection|yakitori|wings/.test(t)) return 1200; if(/sushi|pizza|steak|kaiseki|yakiniku|restaurant|food market/.test(t)) return 2500; if(/bar|tachinomi|cocktail|pub/.test(t)) return 3500; if(/class|workshop|experience|omakase/.test(t)) return 6000; if(/arcade|game/.test(t)) return 1500; return 0; }
+function durOf(s,p){ if(s.dur) return s.dur; const t=((p&&p.cat)||'').toLowerCase(); if(/class|workshop|experience|theater|cinema|digital art|tour/.test(t)) return 120; if(/museum|aquarium|castle|garden|flea|antique|market/.test(t)) return 90; if(/temple|shrine|viewpoint|bridge|pass|river/.test(t)) return 40; if(/bar|pub|arcade|night light/.test(t)) return 90; if(/ramen|udon|curry|donburi/.test(t)) return 45; if(/restaurant|sushi|pizza|steak|kaiseki|yakiniku|wings/.test(t)) return 75; if(/store|shop|mall|camera|records|knife|stationery|sneakers|toy|thrift|collectibles|electronics|audio|keyboard/.test(t)) return 50; if(/hotel|hostel|inn/.test(t)) return 30; return 60; }
+function parseT(t){const m=/^(\d{1,2}):(\d{2})$/.exec(t||''); return m?Number(m[1])*60+Number(m[2]):null;}
+function fmtT(m){m=Math.round(m); const h=Math.floor(m/60)%24, mm=m%60; return (h<10?'0':'')+h+':'+(mm<10?'0':'')+mm;}
+function closingOn(p,dow){ if(!p||!p.hours) return null; const H=p.hours; if(/24 ?h/i.test(H)) return 24*60; const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun']; let seg=null; for(const part of H.split(';')){ const q=part.trim(); const m=/^(Daily|([A-Z][a-z]{2})(?:–([A-Z][a-z]{2}))?)\s+(.*)$/.exec(q); if(!m) continue; if(m[1]==='Daily'){seg=m[4]; break;} const a=days.indexOf(m[2]), b=m[3]?days.indexOf(m[3]):a, i=days.indexOf(dow); if(a>=0&&i>=a&&i<=b){seg=m[4]; break;} } if(seg==null) return null; if(/closed/i.test(seg)) return 0; const ranges=[...seg.matchAll(/(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\s*[–-]\s*(\d{1,2})(?::(\d{2}))?\s*(am|pm)/gi)]; if(!ranges.length) return null; const r=ranges[ranges.length-1]; let h=Number(r[4]), mm=Number(r[5]||0); const ap=r[6].toLowerCase(); if(ap==='pm'&&h<12) h+=12; if(ap==='am'&&h===12) h=0; let v=h*60+mm; if(v<6*60) v+=24*60; return v; }
 function swapKey(d,i){return `swap:${d.n}:${i}`;}
-function effective(d){ const act=d.stops.map(s=>!s.opt); const out=d.stops.map(()=>null); d.stops.forEach((s,i)=>{ if(!s.opt) return; if(!isChecked(swapKey(d,i))) return; act[i]=true; if(s.swap){ const j=d.stops.findIndex((x,k)=>k!==i&&!x.opt&&(x.ref===s.swap||x.title===s.swap)); if(j>=0){act[j]=false; out[j]=i;} } }); return {act,out}; }
-function routeOf(d){ const {act}=effective(d); const route=[], seen=new Set(); d.stops.forEach((s,i)=>{ if(!act[i]||!s.ref) return; const p=ALL[s.ref]; if(p&&p.lat&&!seen.has(p.id)){seen.add(p.id); route.push(Object.assign({t:s.t,travel:s.travel},p));} }); return route; }
+function orderOf(d){ const o=STATE.order[d.n]; const n=d.stops.length; if(Array.isArray(o)&&o.length===n&&new Set(o).size===n&&o.every(i=>i>=0&&i<n)) return o.slice(); return d.stops.map((_,i)=>i); }
+function effective(d){ const act=d.stops.map(s=>!s.opt); const out=d.stops.map(()=>null); const skipped=d.stops.map((s,i)=>!s.opt&&isChecked(`skip:${d.n}:${i}`)); skipped.forEach((v,i)=>{ if(v) act[i]=false; });
+  d.stops.forEach((s,i)=>{ if(!s.opt) return; if(!isChecked(swapKey(d,i))) return; act[i]=true; if(s.swap){ const j=d.stops.findIndex((x,k)=>k!==i&&(x.ref===s.swap||x.title===s.swap)&&(!x.opt||isChecked(swapKey(d,k)))); if(j>=0&&act[j]){act[j]=false; out[j]=i;} } });
+  const order=orderOf(d); const modified=skipped.some(Boolean)||d.stops.some((s,i)=>s.opt&&isChecked(swapKey(d,i)))||order.some((v,i)=>v!==i);
+  return {act,out,skipped,order,modified}; }
+function schedule(d){ const {act,order,modified}=effective(d); const mode=d.drive; let cur=null, prev=null; const dowName=d.dow; let delta=0; const notes={};
+  order.forEach(i=>{ const s=d.stops[i]; const p=s.ref?ALL[s.ref]:null; const authored=parseT(s.t); let est=null, hopMin=0, hopKm=0;
+    if(act[i]){ if(cur==null) cur=authored!=null?authored:9*60; else if(authored!=null&&!modified) cur=authored; if(p&&p.lat&&prev){ hopKm=hav(prev,p); const e=estHop(hopKm,mode); hopMin=e.min; if(modified) cur+=hopMin; } est=cur; const dur=durOf(s,p); const close=p?closingOn(p,dowName):null; const flags=[]; if(close===0) flags.push('closed on '+dowName); else if(close!=null&&est+Math.min(dur,45)>close) flags.push('arrives after closing ('+fmtT(close)+')'); if(s.opt) delta+=costOf(p); cur=cur+dur; if(p&&p.lat) prev=p; notes[i]={est,flags,hopKm,hopMin,dur}; }
+    else { notes[i]={est:null,flags:[],dur:0}; if(!s.opt&&s.ref) delta-=costOf(ALL[s.ref]); }
+  });
+  return {notes,delta,end:cur||0,modified}; }
+function prosCons(d,i){ const s=d.stops[i]; const p=s.ref?ALL[s.ref]:null; if(!p) return null; const sc=schedule(d); const n=sc.notes[i]||{}; const pros=[], cons=[]; if(p.use) pros.push(p.use); if(p.best) pros.push('Best: '+p.best);
+  const c=costOf(p); if(c) cons.push('about '+fmtY(c)+' more'); else pros.push('no extra cost'); cons.push('takes about '+durOf(s,p)+' min');
+  if(s.swap){ const j=d.stops.findIndex((x,k)=>x.ref===s.swap||x.title===s.swap); if(j>=0){ const q=d.stops[j].ref?ALL[d.stops[j].ref]:null; if(q){ const cq=costOf(q); cons.push('replaces '+q.name.split(' (')[0]+(cq?' (saves '+fmtY(cq)+')':'')); if(p.lat&&q.lat){ const km=hav(p,q); if(km>3) cons.push(Math.round(km)+' km away from the stop it replaces'); } } } }
+  (n.flags||[]).forEach(f=>cons.push(f)); if(sc.end>23*60+30) cons.push('day now ends around '+fmtT(sc.end)); if(n.hopKm>8&&!d.drive) cons.push('long hop ('+Math.round(n.hopKm)+' km) from the previous stop'); return {pros,cons}; }
+function routeOf(d){ const {act,order}=effective(d); const route=[], seen=new Set(); order.forEach(i=>{ const s=d.stops[i]; if(!act[i]||!s.ref) return; const p=ALL[s.ref]; if(p&&p.lat&&!seen.has(p.id)){seen.add(p.id); route.push(Object.assign({t:s.t,travel:s.travel},p));} }); return route; }
 function stopName(s){ if(s.ref){const p=ALL[s.ref]; if(!p) return esc(s.title||s.ref); return `<button class="pl" data-place="${p.id}">${esc(p.name)}</button> ${srcChip(p)}`;} return esc(s.title||''); }
-function dayCard(d){ let prev=null; const mode=d.drive?'driving':'transit'; const {act,out}=effective(d);
-  const rows=d.stops.map((s,i)=>{ const p=s.ref?ALL[s.ref]:null; const id=`done:${d.n}:${i}`; const done=isChecked(id); let dir=''; const isOpt=!act[i];
-    let sw=''; if(s.opt){ const on=isChecked(swapKey(d,i)); sw=`<button class="btn small" data-swap="${swapKey(d,i)}">${on?'Undo':(s.swap?'Switch in':'Add to day')}</button>${on?'<span class="chip pick">switched in</span>':''}`; } else if(out[i]!=null){ sw=`<button class="btn small" data-swap="${swapKey(d,out[i])}">Switch back</button><span class="chip tag">swapped out</span>`; }
+function dayCard(d){ const mode=d.drive?'driving':'transit'; const eff=effective(d); const {act,out,order,modified}=eff; const sc=schedule(d); let prev=null; const editing=canEdit();
+  const rows=order.map((i,pos)=>{ const s=d.stops[i]; const p=s.ref?ALL[s.ref]:null; const id=`done:${d.n}:${i}`; const done=isChecked(id); let dir=''; const isOpt=!act[i]; const n=sc.notes[i]||{};
+    let sw=''; if(s.opt){ const on=isChecked(swapKey(d,i)); sw=`<button class="btn small" data-swap="${swapKey(d,i)}">${on?'Undo':(s.swap?'Switch in':'Add to day')}</button>${on?'<span class="chip pick">switched in</span>':''}`; }
+    else if(out[i]!=null){ sw=`<button class="btn small" data-swap="${swapKey(d,out[i])}">Switch back</button><span class="chip tag">swapped out</span>`; }
+    else { const sk=isChecked(`skip:${d.n}:${i}`); sw=`<button class="btn small" data-skip="skip:${d.n}:${i}">${sk?'Restore':'Skip'}</button>${sk?'<span class="chip tag">skipped</span>':''}`; }
+    const mv=act[i]?`<button class="btn small" data-move="${d.n}:${pos}:-1" aria-label="Move up">▲</button><button class="btn small" data-move="${d.n}:${pos}:1" aria-label="Move down">▼</button>`:'';
+    const pc=(s.opt&&isChecked(swapKey(d,i)))?prosCons(d,i):null;
+    const pcHtml=pc?`<div class="pc"><div><b>Pros</b><ul>${pc.pros.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div><div><b>Cons</b><ul>${pc.cons.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div></div>`:'';
+    const timeCell=(!isOpt&&n.est!=null)?((modified||parseT(s.t)==null)?`<span class="est" title="estimated after your changes">~${fmtT(n.est)}</span>`:esc(s.t)):esc(s.t);
+    const flagHtml=(n.flags||[]).length?`<div class="warn">${n.flags.map(esc).join(' · ')}</div>`:'';
     if(p&&p.lat){ if(prev&&!isOpt&&prev.id!==p.id) dir=`<a class="link" target="_blank" rel="noopener" href="${esc(dirLink(prev,p,mode))}">Directions from ${esc(prev.name.split(' (')[0])}</a>`; if(!isOpt) prev=p; }
-    const hours=p&&p.hours?`<span class="muted mono">${esc(p.hours)}</span>`:'';
-    const pp=p?placePhoto(p.id):null;
-    return `<div class="stop${isOpt?' opt':''}${done?' done':''}"><div class="t">${esc(s.t)}</div><div class="row">${pp?`<img class="mini" src="${esc(thumb(pp))}" alt="" loading="lazy" decoding="async" data-place="${p.id}" style="cursor:pointer">`:''}<div class="body" style="min-width:0">
+    const hours=p&&p.hours?`<span class="muted mono">${esc(p.hours)}</span>`:''; const pp=p?placePhoto(p.id):null;
+    return `<div class="stop${isOpt?' opt':''}${done?' done':''}"><div class="t">${timeCell}</div><div class="row">${pp?`<img class="mini" src="${esc(thumb(pp))}" alt="" loading="lazy" decoding="async" data-place="${p.id}" style="cursor:pointer">`:''}<div class="body" style="min-width:0">
       <div class="name">${stopName(s)}</div>
       ${s.note?`<div class="note">${esc(s.note)}</div>`:''}
-      ${s.travel?`<div class="travel">→ ${esc(s.travel)}</div>`:''}
-      <div class="meta">${hours}${p?`<a class="link" target="_blank" rel="noopener" href="${esc(mapsLink(p))}">Maps</a>`:''}${dir}<label class="small muted"><input type="checkbox" data-check="${id}" ${done?'checked':''}> done</label>${sw}</div>
+      ${s.travel?`<div class="travel">→ ${esc(s.travel)}</div>`:''}${modified&&n.hopKm?`<div class="travel">≈ ${n.hopKm<10?n.hopKm.toFixed(1):Math.round(n.hopKm)} km · ~${n.hopMin} min</div>`:''}
+      ${flagHtml}
+      <div class="meta">${hours}${p?`<a class="link" target="_blank" rel="noopener" href="${esc(mapsLink(p))}">Maps</a>`:''}${dir}<label class="small muted"><input type="checkbox" data-check="${id}" ${done?'checked':''}> done</label>${editing?sw+mv:''}</div>
+      ${pcHtml}
     </div></div></div>`; }).join('');
   const tags=(d.tags||[]).map(t=>`<span class="chip tag ${esc(t)}">${TAG_ICON[t]?ICON(TAG_ICON[t]):''}${esc(t)}</span>`).join('')+(d.chill?`<span class="chip pick">${ICON('onsen')}chill day</span>`:'')+(d.drive?`<span class="chip you">${ICON('car')}car day</span>`:'')+(d.holiday?'<span class="chip tag">public holiday</span>':'');
   const ph=photoFor('d'+d.n); const cover=ph?`<div class="cover"><img src="${esc(ph.file)}" alt="${esc(ph.alt||'')}" loading="lazy" decoding="async"><span class="daynum">Day ${d.n}</span><span class="credit">📷 ${esc(ph.artist.split(' ')[0]||'Commons')}</span><span class="mascot sticker lg">${ICON(DAY_MASCOT[d.n]||'onigiri')}</span></div>`:'';
+  const budget=d.budget+sc.delta; const deltaTxt=sc.delta?` <span class="${sc.delta>0?'warn-inline':'good-inline'}">(${sc.delta>0?'+':'−'}${fmtY(Math.abs(sc.delta))} from your changes)</span>`:'';
+  const changes=modified?`<div class="changes"><span><b>After your changes:</b> the day runs until about ${fmtT(sc.end)}; budget ${fmtY(budget)}${deltaTxt}. Times marked ~ are estimates from distance and typical visit lengths.</span> ${editing?`<button class="btn small" data-reset="${d.n}">Reset day</button>`:''}</div>`:'';
   return `<article class="card day" id="day-${d.n}">${cover}<div class="day-head"><span class="date">Day ${d.n} · ${niceDate(d.date)}</span><h2>${esc(d.title)}</h2></div>
-   <div class="chips">${tags}<span class="chip day">stay: ${esc(d.base)}</span><span class="chip day">≈ ${fmtY(d.budget)} · ${fmtR(d.budget*STATE.budget.rate)}</span></div>
-   <p class="why">${esc(d.why)}</p><div class="stops">${rows}</div></article>`; }
+   <div class="chips">${tags}<span class="chip day">stay: ${esc(d.base)}</span><span class="chip day">≈ ${fmtY(budget)} · ${fmtR(budget*STATE.budget.rate)}</span></div>
+   <p class="why">${esc(d.why)}</p>${changes}<div class="stops">${rows}</div></article>`; }
 
 // ---------- views ----------
 function renderToday(){ const t=todayJST(); const v=$('#view-today'); const n=daysBetween(t,TRIP.start);
@@ -2659,13 +2738,30 @@ const VIEWS={tokyo:{label:'Tokyo',b:[35.57,139.58,35.79,139.91]},fuji:{label:'Ha
 const MAPV={view:'tokyo',day:0,live:null};
 let LIVE_OK=null, LMAP=null, LLAYER=null;
 (function probe(){ const im=new Image(); const t=setTimeout(()=>{if(LIVE_OK===null){LIVE_OK=false; if(current==='map') renderMap();}},5000); im.onload=()=>{clearTimeout(t); LIVE_OK=true; if(MAPV.live===null) MAPV.live=true; if(current==='map') renderMap();}; im.onerror=()=>{clearTimeout(t); LIVE_OK=false; if(current==='map') renderMap();}; im.src='https://tile.openstreetmap.org/5/28/12.png'; })();
+let BASEMAP=null, BASEMAP_TRIED=false;
+async function loadBasemap(){ if(BASEMAP||BASEMAP_TRIED) return BASEMAP; BASEMAP_TRIED=true; try{ const r=await fetch('data/basemap.json'); if(r.ok){ BASEMAP=await r.json(); if(current==='map') renderMap(); } }catch(e){} return BASEMAP; }
+const LINE_COLORS=[['Ginza','#f39700'],['Marunouchi','#e60012'],['Hibiya','#9caeb7'],['Tozai','#00a7db'],['Chiyoda','#00ac9b'],['Yurakucho','#d7c447'],['Hanzomon','#9b7cb6'],['Namboku','#00ada9'],['Fukutoshin','#bb641d'],['Asakusa','#e85298'],['Mita','#0079c2'],['Shinjuku','#6cbb5a'],['Oedo','#b6007a'],['Yamanote','#9acd32'],['Chuo','#f15a22'],['Sobu','#ffd400'],['Keihin','#00bbdd'],['Saikyo','#00ac9a'],['Midosuji','#e5171f'],['Tanimachi','#522886'],['Yotsubashi','#0078ba'],['Chuo Line','#019a66'],['Sennichimae','#e44d93'],['Sakaisuji','#814721'],['Nagahori','#a9cc51'],['Imazatosuji','#ee7b1a'],['Karasuma','#5fb24b'],['Tozai Line','#e0202b'],['Keihan','#3fa74a'],['Hankyu','#8b1a3c'],['Kintetsu','#d34c45'],['Hanshin','#f58220'],['Odakyu','#2d8fd6'],['Keio','#d41e5a'],['Tokyu','#e30613'],['Seibu','#1f65b0'],['Keisei','#2c67b2'],['Tobu','#1a3b8e'],['Yurikamome','#1d9bd7'],['Rinkai','#2a8bb8'],['Hakone','#d62f2f'],['Fujikyu','#2e6fb7'],['Izu','#2b8f9e']];
+function lineColor(n,type,dark){ const s=n||''; for(const [k,c] of LINE_COLORS){ if(s.includes(k)) return c; } if(type==='subway') return dark?'#8ab4f8':'#3b6fd6'; if(type==='monorail') return '#9b59b6'; return dark?'#8a93a6':'#6b7280'; }
+function addVectorBasemap(map,dark){ if(!BASEMAP) return; const R=L.canvas({padding:0.4}); const water=dark?'#0e1a2b':'#cfe4f7', coast=dark?'#2d4d6b':'#8fb9df', road=dark?'#2f3647':'#e2d6c3', prim=dark?'#3a4257':'#f1e7d4';
+  const waterL=L.layerGroup(), roadL=L.layerGroup(), railL=L.layerGroup(), staL=L.layerGroup(), labL=L.layerGroup(), placeL=L.layerGroup();
+  for(const reg of Object.values(BASEMAP)){
+    reg.water.forEach(w=>{ if(w.t==='coastline') L.polyline(w.c,{renderer:R,color:coast,weight:1.2,interactive:false}).addTo(waterL); else L.polygon(w.c,{renderer:R,color:coast,weight:0.5,fillColor:water,fillOpacity:1,interactive:false}).addTo(waterL); });
+    reg.roads.forEach(r=>L.polyline(r.c,{renderer:R,color:r.t==='primary'?prim:road,weight:r.t==='motorway'?2.2:(r.t==='trunk'?1.6:1),interactive:false,opacity:.9}).addTo(roadL));
+    reg.rail.forEach(r=>L.polyline(r.c,{renderer:R,color:lineColor(r.n,r.t,dark),weight:r.t==='subway'?2.4:1.8,opacity:r.t==='subway'?.95:.75,dashArray:r.t==='subway'?null:'6 4',interactive:false}).addTo(railL));
+    reg.stations.forEach(s=>{ L.circleMarker([s.la,s.lo],{renderer:R,radius:2.6,color:dark?'#e8eaf0':'#171a21',weight:1,fillColor:dark?'#1a1e27':'#fff',fillOpacity:1,interactive:false}).addTo(staL); L.marker([s.la,s.lo],{icon:L.divIcon({className:'lbl sta',html:esc(s.n),iconAnchor:[-5,7]}),interactive:false}).addTo(labL); });
+    reg.places.forEach(p=>{ const big=/city|town/.test(p.t||''); L.marker([p.la,p.lo],{icon:L.divIcon({className:'lbl place'+(big?' big':''),html:esc(p.n),iconAnchor:[0,0]}),interactive:false}).addTo(placeL); });
+  }
+  waterL.addTo(map); roadL.addTo(map); railL.addTo(map); 
+  const upd=()=>{ const z=map.getZoom(); if(z>=12) staL.addTo(map); else map.removeLayer(staL); if(z>=14) labL.addTo(map); else map.removeLayer(labL); if(z>=11&&z<15) placeL.addTo(map); else map.removeLayer(placeL); };
+  map.on('zoomend',upd); upd(); }
 function isDark(){return false;}
 function renderLiveMap(day, route, pts){ const v=$('#view-map'); const side=day?dayHops(day,route):pointsPanel(pts);
-  v.innerHTML=`<div class="stack"><div class="card flat"><span class="eyebrow">Live map</span><div class="h-row"><span class="sticker lg">${ICON('fuji')}</span><h1>Where everything is</h1></div><p class="muted">Pan, zoom, tap a pin. Red pins are your lists, teal are suggestions; pick a day to draw its route.</p>
+  v.innerHTML=`<div class="stack"><div class="card flat"><span class="eyebrow">Live map</span><div class="h-row"><span class="sticker lg">${ICON('fuji')}</span><h1>Where everything is</h1></div><p class="muted">Pan, zoom, tap a pin. Red pins are your lists, teal are suggestions; pick a day to draw its route. Rail and metro lines, stations and districts come from OpenStreetMap${LIVE_OK?'':' (street tiles are blocked in this viewer, so the base is drawn from that data)'}.</p>
    <div class="maptools"><select id="mapday" aria-label="Day route"><option value="0">All places, no route</option>${DAYS.map(d=>`<option value="${d.n}" ${MAPV.day===d.n?'selected':''}>Day ${d.n} · ${d.dow} ${d.date.slice(5)} · ${esc(d.title)}</option>`).join('')}</select><button class="btn small" id="locate">Locate me</button><button class="btn small" id="mapmode">Drawn map</button></div></div>
    <div class="mapwrap"><div class="lmap" id="lmap"></div>${side}</div></div>`;
-  const L=window.L; LMAP=L.map('lmap',{zoomControl:true,attributionControl:true}); const dark=isDark();
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors',className:dark?'tiles-dark':''}).addTo(LMAP);
+  const L=window.L; LMAP=L.map('lmap',{zoomControl:true,attributionControl:true,preferCanvas:true}); const dark=isDark();
+  if(LIVE_OK) L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap contributors',className:dark?'tiles-dark':'',opacity:BASEMAP?0.85:1}).addTo(LMAP); else { LMAP.getContainer().style.background=dark?'#171c26':'#f3f0e8'; LMAP.attributionControl.addAttribution('Map data &copy; OpenStreetMap contributors'); }
+  if(!BASEMAP&&!BASEMAP_TRIED) loadBasemap(); addVectorBasemap(LMAP,dark);
   const group=L.featureGroup().addTo(LMAP);
   const seen=new Set(route.map(p=>p.id));
   pts.forEach(p=>{ const onRoute=seen.has(p.id); const m=L.circleMarker([p.lat,p.lng],{radius:day?(onRoute?9:4):7,color:'#fff',weight:1.5,fillColor:p.src==='you'?'#d8482a':'#1f8a9c',fillOpacity:day&&!onRoute?.45:.95}).addTo(group); const pp=placePhoto(p.id);
@@ -2681,7 +2777,7 @@ function pointsPanel(pts){ const you=pts.filter(p=>p.src==='you'), pk=pts.filter
 function project(b,W,H,pad){const [minLat,minLng,maxLat,maxLng]=b;const cos=Math.cos((minLat+maxLat)/2*Math.PI/180);const sc=Math.min((W-2*pad)/((maxLng-minLng)*cos),(H-2*pad)/(maxLat-minLat));const ox=(W-(maxLng-minLng)*cos*sc)/2, oy=(H-(maxLat-minLat)*sc)/2;return (lat,lng)=>[ox+(lng-minLng)*cos*sc, oy+(maxLat-lat)*sc];}
 function inBox(p,b){return p.lat>=b[0]&&p.lat<=b[2]&&p.lng>=b[1]&&p.lng<=b[3];}
 function renderMap(){ const v=$('#view-map'); if(LMAP){try{LMAP.remove();}catch(e){} LMAP=null;}
-  if(MAPV.live!==false && LIVE_OK && window.L){ const day0=MAPV.day?DAYS.find(d=>d.n===MAPV.day):null; const route0=day0?routeOf(day0):[]; const all=Object.values(ALL).filter(p=>p.lat&&!p.dup&&p.lat>20&&p.lng>120); renderLiveMap(day0, route0, all); return; }
+  if(MAPV.live!==false && window.L){ const day0=MAPV.day?DAYS.find(d=>d.n===MAPV.day):null; const route0=day0?routeOf(day0):[]; const all=Object.values(ALL).filter(p=>p.lat&&!p.dup&&p.lat>20&&p.lng>120); renderLiveMap(day0, route0, all); return; }
   const W=800,H=560,pad=18; const box=VIEWS[MAPV.view].b; const pr=project(box,W,H,pad);
   const coast=window.JAPAN_OUTLINE.map(r=>'M'+r.map(([x,y])=>pr(y,x).map(n=>n.toFixed(1)).join(',')).join('L')+'Z').join('');
   const day=MAPV.day?DAYS.find(d=>d.n===MAPV.day):null;
@@ -2701,7 +2797,7 @@ function renderMap(){ const v=$('#view-map'); if(LMAP){try{LMAP.remove();}catch(
   v.innerHTML=`<div class="stack"><div class="card flat"><span class="eyebrow">Map graphs</span><div class="h-row"><span class="sticker lg">${ICON('fuji')}</span><h1>Where everything is</h1></div><p class="muted">Hand-drawn from your saved coordinates. For live navigation every place links out to Google Maps.</p>
    <div class="filters"><div class="tiers">${Object.entries(VIEWS).map(([k,o])=>`<button class="btn small" data-view="${k}" aria-pressed="${MAPV.view===k}">${o.label}</button>`).join('')}</div>
    <select id="mapday" aria-label="Day route"><option value="0">All places, no route</option>${DAYS.map(d=>`<option value="${d.n}" ${MAPV.day===d.n?'selected':''}>Day ${d.n} · ${d.dow} ${d.date.slice(5)} · ${esc(d.title)}</option>`).join('')}</select></div>
-   <div class="legend"><span><i style="background:var(--you)"></i>Your lists</span><span><i style="background:var(--pick)"></i>Claude picks</span><span>numbered = today’s route order</span>${LIVE_OK?'<button class="btn small" id="golive">Live map</button>':'<span class="src-note">Live tiles are blocked in this viewer; open the zip copy for the live map.</span>'}</div></div>
+   <div class="legend"><span><i style="background:var(--you)"></i>Your lists</span><span><i style="background:var(--pick)"></i>Claude picks</span><span>numbered = today’s route order</span>${window.L?'<button class="btn small" id="golive">Interactive map</button>':''}</div></div>
    <div class="mapwrap"><div class="mapbox">${svg}</div>${side}</div></div>`;
   const tip=$('#maptip'), boxEl=v.querySelector('.mapbox');
   v.querySelectorAll('.pt').forEach(el=>{ el.addEventListener('mousemove',e=>{ const p=ALL[el.dataset.place]; const r=boxEl.getBoundingClientRect(); tip.textContent=p.name; tip.style.left=(e.clientX-r.left)+'px'; tip.style.top=(e.clientY-r.top)+'px'; tip.classList.add('on'); }); el.addEventListener('mouseleave',()=>tip.classList.remove('on')); el.style.cursor='pointer'; });
@@ -2741,23 +2837,23 @@ const SLOT=['s1','s2','s3','s4','s5','s6','s7','s8'];
 function planFor(c){const o=STATE.budget.over[c.key]; return (o!=null&&!isNaN(o))?Number(o):c[STATE.budget.tier];}
 function spentFor(key){return STATE.expenses.filter(e=>e.cat===key).reduce((a,e)=>a+Number(e.amt||0),0);}
 function renderBudget(){ const B=window.BUDGET, rate=STATE.budget.rate; const v=$('#view-budget');
-  const tot=k=>B.cats.reduce((a,c)=>a+c[k],0); const plan=B.cats.reduce((a,c)=>a+planFor(c),0); const spent=STATE.expenses.reduce((a,e)=>a+Number(e.amt||0),0);
+  const tot=k=>B.cats.reduce((a,c)=>a+c[k],0); const adj=DAYS.reduce((a,d)=>a+schedule(d).delta,0); const plan=B.cats.reduce((a,c)=>a+planFor(c),0)+adj; const spent=STATE.expenses.reduce((a,e)=>a+Number(e.amt||0),0);
   const rows=B.cats.map((c,i)=>`<tr><td><span class="swatch" style="background:var(--${SLOT[i]})"></span>${esc(c.label)}<div class="small muted">${esc(c.note)}</div></td><td class="num">${fmtY(c.lean)}</td><td class="num">${fmtY(c.mid)}</td><td class="num">${fmtY(c.splurge)}</td><td class="num"><input class="amt" type="number" inputmode="numeric" data-over="${c.key}" value="${planFor(c)}"></td><td class="num" data-spent="${c.key}">${fmtY(spentFor(c.key))}</td></tr>`).join('');
   v.innerHTML=`<div class="stack"><div class="card flat"><span class="eyebrow">Flights already paid · ₹2–4 lakh on the ground</span><div class="h-row"><span class="sticker lg">${ICON('yen')}</span><h1>Budget</h1></div><p class="muted">Three tiers in yen, converted at your rate. Edit any cell to make it your plan; log spends below and the chart tracks them.</p>
    <div class="filters"><div class="tiers">${['lean','mid','splurge'].map(t=>`<button class="btn small" data-tier="${t}" aria-pressed="${STATE.budget.tier===t}">${t==='lean'?'Lean ≈ ₹2L':t==='mid'?'Mid ≈ ₹3L':'Splurge ≈ ₹4L'}</button>`).join('')}</div><label class="small muted">₹ per ¥ <input class="amt" id="rate" type="number" step="0.001" value="${rate}"></label><button class="btn small" id="resetover">Reset edits</button></div></div>
-   <div class="totals"><div class="tile"><span class="sticker">${ICON('yen')}</span><div><div class="v" id="t-plan">${fmtY(plan)}</div><div class="l">your plan</div></div></div><div class="tile"><span class="sticker">${ICON('sparkle')}</span><div><div class="v" id="t-planr">${fmtR(plan*rate)}</div><div class="l">in rupees</div></div></div><div class="tile"><span class="sticker">${ICON('bag')}</span><div><div class="v" id="t-spent">${fmtY(spent)}</div><div class="l">spent so far · ${fmtR(spent*rate)}</div></div></div><div class="tile"><span class="sticker">${ICON('daruma')}</span><div><div class="v" id="t-left">${fmtY(plan-spent)}</div><div class="l">left</div></div></div></div>
+   <div class="totals"><div class="tile"><span class="sticker">${ICON('yen')}</span><div><div class="v" id="t-plan">${fmtY(plan)}</div><div class="l">your plan${adj?` · incl. ${adj>0?'+':'−'}${fmtY(Math.abs(adj))} itinerary changes`:''}</div></div></div><div class="tile"><span class="sticker">${ICON('sparkle')}</span><div><div class="v" id="t-planr">${fmtR(plan*rate)}</div><div class="l">in rupees</div></div></div><div class="tile"><span class="sticker">${ICON('bag')}</span><div><div class="v" id="t-spent">${fmtY(spent)}</div><div class="l">spent so far · ${fmtR(spent*rate)}</div></div></div><div class="tile"><span class="sticker">${ICON('daruma')}</span><div><div class="v" id="t-left">${fmtY(plan-spent)}</div><div class="l">left</div></div></div></div>
    <div class="chart" id="chart"></div>
    <div class="card"><div class="tablewrap"><table><thead><tr><th>Category</th><th class="num">Lean</th><th class="num">Mid</th><th class="num">Splurge</th><th class="num">Your plan</th><th class="num">Spent</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><th>Total</th><th class="num">${fmtY(tot('lean'))}<br><span class="muted">${fmtR(tot('lean')*rate)}</span></th><th class="num">${fmtY(tot('mid'))}<br><span class="muted">${fmtR(tot('mid')*rate)}</span></th><th class="num">${fmtY(tot('splurge'))}<br><span class="muted">${fmtR(tot('splurge')*rate)}</span></th><th class="num" id="f-plan">${fmtY(plan)}</th><th class="num" id="f-spent">${fmtY(spent)}</th></tr></tfoot></table></div></div>
    <div class="card"><h2>Spend log</h2><form class="exp" id="expform"><input name="desc" placeholder="What (e.g. Fujiya X-E3)" required><input name="amt" type="number" inputmode="numeric" placeholder="¥ amount" required min="1"><select name="cat">${B.cats.map(c=>`<option value="${c.key}">${esc(c.label)}</option>`).join('')}</select><input name="date" type="date" value="${todayJST()}"><button class="btn primary full" type="submit">Add spend</button></form><div id="explist">${expRows()}</div></div></div>`;
   drawChart();
-  v.querySelectorAll('[data-tier]').forEach(b=>b.addEventListener('click',()=>{STATE.budget.tier=b.dataset.tier; STATE.budget.over={}; Store.save(); renderBudget();}));
+  v.querySelectorAll('[data-tier]').forEach(b=>b.addEventListener('click',()=>{ if(!canEdit()){ requireEdit(()=>{}); return; }STATE.budget.tier=b.dataset.tier; STATE.budget.over={}; Store.save(); renderBudget();}));
   $('#rate').addEventListener('change',e=>{const r=Number(e.target.value); if(r>0){STATE.budget.rate=r; Store.save(); renderBudget();}});
   $('#resetover').addEventListener('click',()=>{STATE.budget.over={}; Store.save(); renderBudget();});
-  v.querySelectorAll('[data-over]').forEach(inp=>inp.addEventListener('input',e=>{const val=e.target.value; if(val==='') delete STATE.budget.over[inp.dataset.over]; else STATE.budget.over[inp.dataset.over]=Number(val); Store.save(); updateTotals();}));
-  $('#expform').addEventListener('submit',e=>{e.preventDefault(); const f=new FormData(e.target); STATE.expenses.push({id:Date.now().toString(36),desc:String(f.get('desc')).slice(0,80),amt:Number(f.get('amt')),cat:String(f.get('cat')),date:String(f.get('date')||todayJST())}); Store.save(); renderBudget(); toast('Logged');});
-  v.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{STATE.expenses=STATE.expenses.filter(x=>x.id!==b.dataset.del); Store.save(); renderBudget();})); }
+  v.querySelectorAll('[data-over]').forEach(inp=>inp.addEventListener('input',e=>{ if(!canEdit()){ e.target.value=planFor(B.cats.find(c=>c.key===inp.dataset.over)); requireEdit(()=>{}); return; }const val=e.target.value; if(val==='') delete STATE.budget.over[inp.dataset.over]; else STATE.budget.over[inp.dataset.over]=Number(val); Store.save(); updateTotals();}));
+  $('#expform').addEventListener('submit',e=>{e.preventDefault(); if(!canEdit()){ requireEdit(()=>{}); return; } const f=new FormData(e.target); STATE.expenses.push({id:Date.now().toString(36),desc:String(f.get('desc')).slice(0,80),amt:Number(f.get('amt')),cat:String(f.get('cat')),date:String(f.get('date')||todayJST())}); Store.save(); renderBudget(); toast('Logged');});
+  v.querySelectorAll('[data-del]').forEach(b=>b.addEventListener('click',()=>{ if(!canEdit()){ requireEdit(()=>{}); return; }STATE.expenses=STATE.expenses.filter(x=>x.id!==b.dataset.del); Store.save(); renderBudget();})); }
 function expRows(){ if(!STATE.expenses.length) return `<div class="empty"><span class="sticker lg">${ICON('onigiri')}</span><p class="small">No spends yet. The first one is probably a 7-Eleven egg sando.</p></div>`; const B=window.BUDGET; const byDate=STATE.expenses.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')||(b.id>a.id?1:-1)); return `<div class="tablewrap"><table><thead><tr><th>Date</th><th>What</th><th>Category</th><th class="num">¥</th><th class="num">₹</th><th></th></tr></thead><tbody>${byDate.map(e=>{const c=B.cats.find(c=>c.key===e.cat)||{label:e.cat}; return `<tr><td class="mono">${esc(e.date)}</td><td>${esc(e.desc)}</td><td class="small muted">${esc(c.label)}</td><td class="num">${fmtY(e.amt)}</td><td class="num muted">${fmtR(e.amt*STATE.budget.rate)}</td><td><button class="btn small" data-del="${e.id}" aria-label="Delete">×</button></td></tr>`;}).join('')}</tbody></table></div>`; }
-function updateTotals(){ const B=window.BUDGET, rate=STATE.budget.rate; const plan=B.cats.reduce((a,c)=>a+planFor(c),0); const spent=STATE.expenses.reduce((a,e)=>a+Number(e.amt||0),0); $('#t-plan').textContent=fmtY(plan); $('#t-planr').textContent=fmtR(plan*rate); $('#t-left').textContent=fmtY(plan-spent); $('#f-plan').textContent=fmtY(plan); drawChart(); }
+function updateTotals(){ const B=window.BUDGET, rate=STATE.budget.rate; const plan=B.cats.reduce((a,c)=>a+planFor(c),0)+DAYS.reduce((a,d)=>a+schedule(d).delta,0); const spent=STATE.expenses.reduce((a,e)=>a+Number(e.amt||0),0); $('#t-plan').textContent=fmtY(plan); $('#t-planr').textContent=fmtR(plan*rate); $('#t-left').textContent=fmtY(plan-spent); $('#f-plan').textContent=fmtY(plan); drawChart(); }
 function drawChart(){ const B=window.BUDGET; const series=[{label:'Lean',vals:B.cats.map(c=>c.lean)},{label:'Mid',vals:B.cats.map(c=>c.mid)},{label:'Splurge',vals:B.cats.map(c=>c.splurge)},{label:'Your plan',vals:B.cats.map(planFor)},{label:'Spent',vals:B.cats.map(c=>spentFor(c.key))}];
   const W=760,rowH=34,left=86,right=118,top=30,H=top+series.length*rowH+36; const max=Math.max(...series.map(s=>s.vals.reduce((a,b)=>a+b,0)),1); const sc=(W-left-right)/max;
   const ticks=[0,200000,400000,600000,800000].filter(t=>t<=max*1.05);
@@ -2776,14 +2872,20 @@ function renderGuide(){ const G=window.GUIDE; $('#view-guide').innerHTML=`<div c
   <div class="card"><h3>What this site is</h3><p class="small muted">Built from your 7 Google Maps lists (79 places, with the hours and ratings Maps shows), your notes, and the flights in your visa folder. Everything marked “Claude pick” is a suggestion, not something you saved. Ticks, budget edits and spends are stored with the page and sync between your devices when you are signed in; otherwise they stay in this browser.</p></div></div>`; }
 
 // ---------- events ----------
-document.addEventListener('click',e=>{ const sw=e.target.closest('[data-swap]'); if(sw){ toggle(sw.dataset.swap,!isChecked(sw.dataset.swap)); renderCurrent(); toast(isChecked(sw.dataset.swap)?'Switched':'Reverted'); return; }
+document.addEventListener('click',e=>{ if(e.target.id==='lockbtn'){ if(canEdit()){ setEdit(false); renderCurrent(); toast('Locked'); } else requireEdit(()=>{renderCurrent(); toast('Editing unlocked on this device');}); return; }
+  if(e.target.id==='pwok'){ if($('#pwin').value===EDIT_PW){ setEdit(true); $('#pw').hidden=true; $('#scrim').hidden=true; const f=pendingEdit; pendingEdit=null; if(f) f(); } else { $('#pwerr').hidden=false; } return; }
+  if(e.target.id==='pwcancel'){ $('#pw').hidden=true; $('#scrim').hidden=true; pendingEdit=null; return; }
+  const sw=e.target.closest('[data-swap]'); if(sw){ requireEdit(()=>{ toggle(sw.dataset.swap,!isChecked(sw.dataset.swap)); renderCurrent(); toast(isChecked(sw.dataset.swap)?'Switched':'Reverted'); }); return; }
+  const sk=e.target.closest('[data-skip]'); if(sk){ requireEdit(()=>{ toggle(sk.dataset.skip,!isChecked(sk.dataset.skip)); renderCurrent(); toast(isChecked(sk.dataset.skip)?'Skipped':'Restored'); }); return; }
+  const mv=e.target.closest('[data-move]'); if(mv){ requireEdit(()=>{ const [dn,pos,dir]=mv.dataset.move.split(':').map(Number); const d=DAYS.find(x=>x.n===dn); const o=orderOf(d); const j=pos+dir; if(j<0||j>=o.length) return; [o[pos],o[j]]=[o[j],o[pos]]; STATE.order[dn]=o; Store.save(); renderCurrent(); }); return; }
+  const rs=e.target.closest('[data-reset]'); if(rs){ requireEdit(()=>{ const dn=Number(rs.dataset.reset); delete STATE.order[dn]; Object.keys(STATE.checks).forEach(k=>{ if(k.startsWith(`swap:${dn}:`)||k.startsWith(`skip:${dn}:`)) delete STATE.checks[k]; }); Store.save(); renderCurrent(); toast('Day reset'); }); return; }
   const t=e.target.closest('[data-place],[data-go],[data-tab],#drawer-close,#scrim'); if(!t) return;
   if(t.id==='drawer-close'||t.id==='scrim'){closeDrawer();return;}
   if(t.dataset.place){e.preventDefault(); openPlace(t.dataset.place); return;}
   if(t.dataset.tab){show(t.dataset.tab); return;}
   if(t.dataset.go){e.preventDefault(); closeDrawer(); if(t.dataset.mapday){MAPV.day=Number(t.dataset.mapday); const d=DAYS.find(x=>x.n===MAPV.day); MAPV.view=d.n<=2||d.n>=8?'tokyo':(d.n<=4?'fuji':'kansai');} show(t.dataset.go,{day:t.dataset.day?Number(t.dataset.day):0}); } });
-document.addEventListener('change',e=>{ const c=e.target.closest('[data-check]'); if(!c) return; toggle(c.dataset.check,c.checked); const row=c.closest('.check,.stop'); if(row) row.classList.toggle('done',c.checked); if(current==='check'||current==='shop') renderCurrent(); });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawer(); });
+document.addEventListener('change',e=>{ const c=e.target.closest('[data-check]'); if(!c) return; if(!canEdit()){ c.checked=!c.checked; requireEdit(()=>{ toggle(c.dataset.check,!isChecked(c.dataset.check)); renderCurrent(); }); return; } toggle(c.dataset.check,c.checked); const row=c.closest('.check,.stop'); if(row) row.classList.toggle('done',c.checked); if(current==='check'||current==='shop') renderCurrent(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeDrawer(); $('#pw').hidden=true; } if(e.key==='Enter'&&e.target.id==='pwin'){ $('#pwok').click(); } });
 
 // ---------- boot ----------
 function boot(){ $('#tabs').innerHTML=TABS.map(([k,l])=>`<button data-tab="${k}" aria-selected="false">${ICON(TAB_ICON[k])}<span>${l}</span></button>`).join(''); const h=(location.hash||'').replace('#',''); const m=h.match(/^day(\d+)$/); if(m){ current='days'; } else if(TABS.some(t=>t[0]===h)) current=h; show(current, m?{day:Number(m[1])}:undefined); Store.init(); }
