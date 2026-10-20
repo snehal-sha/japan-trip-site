@@ -283,6 +283,22 @@ nav.tabs button:not([aria-selected="true"]):hover{background:var(--you-soft);col
 input[type=search],select,form.exp input,form.exp select,input.amt{border-radius:12px!important;border-width:2px!important}
 input:focus-visible,select:focus-visible{outline-color:var(--you)}
 @media (prefers-reduced-motion:no-preference){.card:not(.flat):hover{transform:translateY(-2px)}}
+/* ---- single light theme: cream paper and sakura pink, in every viewer and OS setting ---- */
+:root, :root[data-theme="dark"], :root[data-theme="light"]{--bg:#faf3ea;--surface:#fffdf9;--surface-2:#f6e9dc;--fg:#4a3236;--muted:#9a7f84;--line:#f0dcd6;--line-2:#e6c9c1;
+ --you:#e8608f;--you-soft:#ffe4ed;--pick:#2fa39a;--pick-soft:#dcf4f0;--accent:#e8608f;
+ --sakura:#ffb7cf;--matcha:#bfe2ad;--sky:#b0def3;--yolk:#ffe08f;--grape:#dccdff;
+ --band:linear-gradient(135deg,#ffdfe9 0%,#fff2e2 48%,#ffe5ee 100%);--pattern:rgba(232,96,143,.13);
+ --land:#f3e4d8;--water:#faf3ea;--coast:#dcbfb4;--chart-surface:#fffdf9;--grid:#f0dcd6;--axis:#e6c9c1;
+ --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#008300;--s7:#6250d6;--s8:#e34948;color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]), :root[data-theme="dark"]{--bg:#faf3ea;--surface:#fffdf9;--surface-2:#f6e9dc;--fg:#4a3236;--muted:#9a7f84;--line:#f0dcd6;--line-2:#e6c9c1;
+ --you:#e8608f;--you-soft:#ffe4ed;--pick:#2fa39a;--pick-soft:#dcf4f0;--accent:#e8608f;
+ --sakura:#ffb7cf;--matcha:#bfe2ad;--sky:#b0def3;--yolk:#ffe08f;--grape:#dccdff;
+ --band:linear-gradient(135deg,#ffdfe9 0%,#fff2e2 48%,#ffe5ee 100%);--pattern:rgba(232,96,143,.13);
+ --land:#f3e4d8;--water:#faf3ea;--coast:#dcbfb4;--chart-surface:#fffdf9;--grid:#f0dcd6;--axis:#e6c9c1;
+ --s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#008300;--s7:#6250d6;--s8:#e34948;color-scheme:light}}
+body{background:radial-gradient(var(--pattern) 1.2px,transparent 1.3px) 0 0/22px 22px,linear-gradient(180deg,#fff2e4 0%,#faf3ea 40%,#ffe9f0 100%) fixed var(--bg)}
+nav.tabs{background:rgba(250,243,234,.9)}
+.tiles-dark{filter:none}
 
 </style>
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
@@ -2601,7 +2617,7 @@ const VIEWS={tokyo:{label:'Tokyo',b:[35.57,139.58,35.79,139.91]},fuji:{label:'Ha
 const MAPV={view:'tokyo',day:0,live:null};
 let LIVE_OK=null, LMAP=null, LLAYER=null;
 (function probe(){ const im=new Image(); const t=setTimeout(()=>{if(LIVE_OK===null){LIVE_OK=false; if(current==='map') renderMap();}},5000); im.onload=()=>{clearTimeout(t); LIVE_OK=true; if(MAPV.live===null) MAPV.live=true; if(current==='map') renderMap();}; im.onerror=()=>{clearTimeout(t); LIVE_OK=false; if(current==='map') renderMap();}; im.src='https://tile.openstreetmap.org/5/28/12.png'; })();
-function isDark(){const t=document.documentElement.getAttribute('data-theme'); if(t) return t==='dark'; return matchMedia('(prefers-color-scheme: dark)').matches;}
+function isDark(){return false;}
 function renderLiveMap(day, route, pts){ const v=$('#view-map'); const side=day?dayHops(day,route):pointsPanel(pts);
   v.innerHTML=`<div class="stack"><div class="card flat"><span class="eyebrow">Live map</span><div class="h-row"><span class="sticker lg">${ICON('fuji')}</span><h1>Where everything is</h1></div><p class="muted">Pan, zoom, tap a pin. Red pins are your lists, teal are suggestions; pick a day to draw its route.</p>
    <div class="maptools"><select id="mapday" aria-label="Day route"><option value="0">All places, no route</option>${DAYS.map(d=>`<option value="${d.n}" ${MAPV.day===d.n?'selected':''}>Day ${d.n} · ${d.dow} ${d.date.slice(5)} · ${esc(d.title)}</option>`).join('')}</select><button class="btn small" id="locate">Locate me</button><button class="btn small" id="mapmode">Drawn map</button></div></div>
