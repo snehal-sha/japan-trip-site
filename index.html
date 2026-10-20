@@ -2517,6 +2517,7 @@ function catIcon(p){const t=((p.cat||'')+' '+(p.list||'')).toLowerCase(); const 
   if(has(/museum|castle|aquarium|observation|theater|digital art|showroom|historic|landmark/)) return 'lantern'; return 'onigiri'; }
 function photoFor(key){return (window.PHOTOS||{})[key]||null;}
 function placePhoto(id){const r=(window.PLACE_PHOTOS||{})[id]; return r&&r.file?r:null;}
+function thumb(pp){return pp.file.replace('img/pl/','img/pl/t/');}
 function srcChip(p){return p.src==='you'?`<span class="chip you">Your list</span>`:`<span class="chip pick">Claude pick</span>`;}
 
 // ---------- state + storage ----------
@@ -2551,7 +2552,7 @@ function toggle(id,v){ if(v) STATE.checks[id]=true; else delete STATE.checks[id]
 // ---------- toast + drawer ----------
 let toastT=null; function toast(t){const el=$('#toast'); el.textContent=t; el.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(()=>el.classList.remove('on'),1400);}
 function openPlace(id){ const p=ALL[id]; if(!p) return; const dayFor=DAYS.filter(d=>d.stops.some(s=>s.ref===id&&!s.opt)); const dayTxt=dayFor.length?dayFor.map(d=>`<a class="link" href="#day${d.n}" data-go="days" data-day="${d.n}">Day ${d.n} · ${niceDate(d.date)}</a>`).join(' · '):(p.day?`suggested Day ${p.day}`:'not scheduled');
-  const pp=placePhoto(p.id); $('#drawer-body').innerHTML=`<div class="place">${pp?`<img class="hero-img" src="${esc(pp.file)}" alt="${esc(p.name)}" loading="lazy">`:''}<div class="head"><span class="sticker">${ICON(catIcon(p))}</span><b>${esc(p.name)}</b> ${srcChip(p)} <span class="chip tag">${esc(p.cat||'')}</span></div>
+  const pp=placePhoto(p.id); $('#drawer-body').innerHTML=`<div class="place">${pp?`<img class="hero-img" src="${esc(pp.file)}" alt="${esc(p.name)}" decoding="async">`:''}<div class="head"><span class="sticker">${ICON(catIcon(p))}</span><b>${esc(p.name)}</b> ${srcChip(p)} <span class="chip tag">${esc(p.cat||'')}</span></div>
   ${p.rating?`<div class="rating">★ ${p.rating} · ${Number(p.reviews||0).toLocaleString('en-US')} reviews · ${esc(p.list)}</div>`:`<div class="rating">${esc(p.list)}</div>`}
   <dl class="kv">
    ${p.area?`<dt>Area</dt><dd>${esc(p.area)}</dd>`:''}
@@ -2584,14 +2585,14 @@ function dayCard(d){ let prev=null; const mode=d.drive?'driving':'transit';
     if(p&&p.lat){ if(prev&&!s.opt&&prev.id!==p.id) dir=`<a class="link" target="_blank" rel="noopener" href="${esc(dirLink(prev,p,mode))}">Directions from ${esc(prev.name.split(' (')[0])}</a>`; if(!s.opt) prev=p; }
     const hours=p&&p.hours?`<span class="muted mono">${esc(p.hours)}</span>`:'';
     const pp=p?placePhoto(p.id):null;
-    return `<div class="stop${s.opt?' opt':''}${done?' done':''}"><div class="t">${esc(s.t)}</div><div class="row">${pp?`<img class="mini" src="${esc(pp.file)}" alt="" loading="lazy" data-place="${p.id}" style="cursor:pointer">`:''}<div class="body" style="min-width:0">
+    return `<div class="stop${s.opt?' opt':''}${done?' done':''}"><div class="t">${esc(s.t)}</div><div class="row">${pp?`<img class="mini" src="${esc(thumb(pp))}" alt="" loading="lazy" decoding="async" data-place="${p.id}" style="cursor:pointer">`:''}<div class="body" style="min-width:0">
       <div class="name">${stopName(s)}</div>
       ${s.note?`<div class="note">${esc(s.note)}</div>`:''}
       ${s.travel?`<div class="travel">→ ${esc(s.travel)}</div>`:''}
       <div class="meta">${hours}${p?`<a class="link" target="_blank" rel="noopener" href="${esc(mapsLink(p))}">Maps</a>`:''}${dir}<label class="small muted"><input type="checkbox" data-check="${id}" ${done?'checked':''}> done</label></div>
     </div></div></div>`; }).join('');
   const tags=(d.tags||[]).map(t=>`<span class="chip tag ${esc(t)}">${TAG_ICON[t]?ICON(TAG_ICON[t]):''}${esc(t)}</span>`).join('')+(d.chill?`<span class="chip pick">${ICON('onsen')}chill day</span>`:'')+(d.drive?`<span class="chip you">${ICON('car')}car day</span>`:'')+(d.holiday?'<span class="chip tag">public holiday</span>':'');
-  const ph=photoFor('d'+d.n); const cover=ph?`<div class="cover"><img src="${esc(ph.file)}" alt="${esc(ph.alt||'')}" loading="lazy"><span class="daynum">Day ${d.n}</span><span class="credit">📷 ${esc(ph.artist.split(' ')[0]||'Commons')}</span><span class="mascot sticker lg">${ICON(DAY_MASCOT[d.n]||'onigiri')}</span></div>`:'';
+  const ph=photoFor('d'+d.n); const cover=ph?`<div class="cover"><img src="${esc(ph.file)}" alt="${esc(ph.alt||'')}" loading="lazy" decoding="async"><span class="daynum">Day ${d.n}</span><span class="credit">📷 ${esc(ph.artist.split(' ')[0]||'Commons')}</span><span class="mascot sticker lg">${ICON(DAY_MASCOT[d.n]||'onigiri')}</span></div>`:'';
   return `<article class="card day" id="day-${d.n}">${cover}<div class="day-head"><span class="date">Day ${d.n} · ${niceDate(d.date)}</span><h2>${esc(d.title)}</h2></div>
    <div class="chips">${tags}<span class="chip day">stay: ${esc(d.base)}</span><span class="chip day">≈ ${fmtY(d.budget)} · ${fmtR(d.budget*STATE.budget.rate)}</span></div>
    <p class="why">${esc(d.why)}</p><div class="stops">${rows}</div></article>`; }
@@ -2627,7 +2628,7 @@ function renderLiveMap(day, route, pts){ const v=$('#view-map'); const side=day?
   const group=L.featureGroup().addTo(LMAP);
   const seen=new Set(route.map(p=>p.id));
   pts.forEach(p=>{ const onRoute=seen.has(p.id); const m=L.circleMarker([p.lat,p.lng],{radius:day?(onRoute?9:4):7,color:'#fff',weight:1.5,fillColor:p.src==='you'?'#d8482a':'#1f8a9c',fillOpacity:day&&!onRoute?.45:.95}).addTo(group); const pp=placePhoto(p.id);
-    m.bindPopup(`${pp?`<img src="${esc(pp.file)}" alt="">`:''}<div class="pn">${esc(p.name)}</div><div>${p.hours?esc(p.hours):''}</div>${p.best?`<div class="muted">${esc(p.best)}</div>`:''}<div style="margin-top:6px"><a href="#" data-place="${p.id}">Details</a> · <a target="_blank" rel="noopener" href="${esc(mapsLink(p))}">Google Maps</a></div>`); });
+    m.bindPopup(`${pp?`<img src="${esc(thumb(pp))}" alt="">`:''}<div class="pn">${esc(p.name)}</div><div>${p.hours?esc(p.hours):''}</div>${p.best?`<div class="muted">${esc(p.best)}</div>`:''}<div style="margin-top:6px"><a href="#" data-place="${p.id}">Details</a> · <a target="_blank" rel="noopener" href="${esc(mapsLink(p))}">Google Maps</a></div>`); });
   if(route.length){ const line=L.polyline(route.map(p=>[p.lat,p.lng]),{color:dark?'#fff':'#171a21',weight:2.5,dashArray:'5 6',opacity:.8}).addTo(group); route.forEach((p,i)=>{ L.marker([p.lat,p.lng],{icon:L.divIcon({className:'',html:`<div style="width:22px;height:22px;border-radius:50%;background:${p.src==='you'?'#d8482a':'#1f8a9c'};color:#fff;font:700 11px/22px ${'var(--mono)'};text-align:center;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4)">${i+1}</div>`,iconSize:[22,22],iconAnchor:[11,11]})}).addTo(group).bindTooltip(p.name.split(' (')[0]); }); }
   const core=(route.length?route:pts).filter(p=>p.lat>34&&p.lat<37.6&&p.lng>134.5&&p.lng<140.6); const b=L.latLngBounds(core.map(p=>[p.lat,p.lng])); if(core.length&&b.isValid()) LMAP.fitBounds(b.pad(0.08),{maxZoom:14}); else LMAP.setView([35.68,139.75],11);
   $('#mapday').addEventListener('change',e=>{MAPV.day=Number(e.target.value); renderMap();});
@@ -2679,7 +2680,7 @@ function renderPlaces(){ const v=$('#view-places'); const lists=[...new Set(PLAC
   $('#plist').addEventListener('change',e=>{FILTER.list=e.target.value; renderPlaces();});
   $('#psched').addEventListener('change',e=>{FILTER.sched=e.target.value; renderPlaces();}); }
 function dayOf(p){const d=DAYS.find(d=>d.stops.some(s=>s.ref===p.id&&!s.opt)); return d?d.n:0;}
-function placeCard(p){ const dn=dayOf(p); const pp=placePhoto(p.id); return `<div class="card place">${pp?`<img class="thumb" src="${esc(pp.file)}" alt="" loading="lazy">`:''}<div class="head">${ICON(catIcon(p))}<b><button class="pl" style="border:0;background:none;padding:0;font:inherit;font-weight:600;color:inherit;cursor:pointer;text-align:left" data-place="${p.id}">${esc(p.name)}</button></b>${srcChip(p)}${dn?`<a class="chip day" href="#day${dn}" data-go="days" data-day="${dn}">Day ${dn}</a>`:'<span class="chip tag">not scheduled</span>'}</div>
+function placeCard(p){ const dn=dayOf(p); const pp=placePhoto(p.id); return `<div class="card place">${pp?`<img class="thumb" src="${esc(thumb(pp))}" alt="" loading="lazy" decoding="async">`:''}<div class="head">${ICON(catIcon(p))}<b><button class="pl" style="border:0;background:none;padding:0;font:inherit;font-weight:600;color:inherit;cursor:pointer;text-align:left" data-place="${p.id}">${esc(p.name)}</button></b>${srcChip(p)}${dn?`<a class="chip day" href="#day${dn}" data-go="days" data-day="${dn}">Day ${dn}</a>`:'<span class="chip tag">not scheduled</span>'}</div>
   <div class="rating">${p.rating?`★ ${p.rating} · ${Number(p.reviews||0).toLocaleString('en-US')}`:''} ${p.cat?'· '+esc(p.cat):''} ${p.area?'· '+esc(p.area):''}</div>
   <dl class="kv">${p.hours?`<dt>Hours</dt><dd>${esc(p.hours)}</dd>`:''}${p.best?`<dt>Best</dt><dd>${esc(p.best)}</dd>`:''}${p.use?`<dt>Why</dt><dd>${esc(p.use)}</dd>`:''}${p.note?`<dt>Your note</dt><dd>“${esc(p.note)}”</dd>`:''}${p.tip?`<dt>Tip</dt><dd>${esc(p.tip)}</dd>`:''}</dl>
   <div><a class="link small" target="_blank" rel="noopener" href="${esc(mapsLink(p))}">Google Maps ↗</a></div></div>`; }
