@@ -2743,17 +2743,20 @@ async function loadBasemap(){ if(BASEMAP||BASEMAP_TRIED) return BASEMAP; BASEMAP
 const LINE_COLORS=[['Ginza','#f39700'],['Marunouchi','#e60012'],['Hibiya','#9caeb7'],['Tozai','#00a7db'],['Chiyoda','#00ac9b'],['Yurakucho','#d7c447'],['Hanzomon','#9b7cb6'],['Namboku','#00ada9'],['Fukutoshin','#bb641d'],['Asakusa','#e85298'],['Mita','#0079c2'],['Shinjuku','#6cbb5a'],['Oedo','#b6007a'],['Yamanote','#9acd32'],['Chuo','#f15a22'],['Sobu','#ffd400'],['Keihin','#00bbdd'],['Saikyo','#00ac9a'],['Midosuji','#e5171f'],['Tanimachi','#522886'],['Yotsubashi','#0078ba'],['Chuo Line','#019a66'],['Sennichimae','#e44d93'],['Sakaisuji','#814721'],['Nagahori','#a9cc51'],['Imazatosuji','#ee7b1a'],['Karasuma','#5fb24b'],['Tozai Line','#e0202b'],['Keihan','#3fa74a'],['Hankyu','#8b1a3c'],['Kintetsu','#d34c45'],['Hanshin','#f58220'],['Odakyu','#2d8fd6'],['Keio','#d41e5a'],['Tokyu','#e30613'],['Seibu','#1f65b0'],['Keisei','#2c67b2'],['Tobu','#1a3b8e'],['Yurikamome','#1d9bd7'],['Rinkai','#2a8bb8'],['Hakone','#d62f2f'],['Fujikyu','#2e6fb7'],['Izu','#2b8f9e']];
 function lineColor(n,type,dark){ const s=n||''; for(const [k,c] of LINE_COLORS){ if(s.includes(k)) return c; } if(type==='subway') return dark?'#8ab4f8':'#3b6fd6'; if(type==='monorail') return '#9b59b6'; return dark?'#8a93a6':'#6b7280'; }
 function addVectorBasemap(map,dark){ if(!BASEMAP) return; const R=L.canvas({padding:0.4}); const water=dark?'#0e1a2b':'#cfe4f7', coast=dark?'#2d4d6b':'#8fb9df', road=dark?'#2f3647':'#e2d6c3', prim=dark?'#3a4257':'#f1e7d4';
-  const waterL=L.layerGroup(), roadL=L.layerGroup(), railL=L.layerGroup(), staL=L.layerGroup(), labL=L.layerGroup(), placeL=L.layerGroup();
+  const waterL=L.layerGroup(), roadL=L.layerGroup(), railL=L.layerGroup(), staL=L.layerGroup(), labL=L.layerGroup(), placeL=L.layerGroup(); const staPts=[], placePts=[];
   for(const reg of Object.values(BASEMAP)){
     reg.water.forEach(w=>{ if(w.t==='coastline') L.polyline(w.c,{renderer:R,color:coast,weight:1.2,interactive:false}).addTo(waterL); else L.polygon(w.c,{renderer:R,color:coast,weight:0.5,fillColor:water,fillOpacity:1,interactive:false}).addTo(waterL); });
     reg.roads.forEach(r=>L.polyline(r.c,{renderer:R,color:r.t==='primary'?prim:road,weight:r.t==='motorway'?2.2:(r.t==='trunk'?1.6:1),interactive:false,opacity:.9}).addTo(roadL));
     reg.rail.forEach(r=>L.polyline(r.c,{renderer:R,color:lineColor(r.n,r.t,dark),weight:r.t==='subway'?2.4:1.8,opacity:r.t==='subway'?.95:.75,dashArray:r.t==='subway'?null:'6 4',interactive:false}).addTo(railL));
-    reg.stations.forEach(s=>{ L.circleMarker([s.la,s.lo],{renderer:R,radius:2.6,color:dark?'#e8eaf0':'#171a21',weight:1,fillColor:dark?'#1a1e27':'#fff',fillOpacity:1,interactive:false}).addTo(staL); L.marker([s.la,s.lo],{icon:L.divIcon({className:'lbl sta',html:esc(s.n),iconAnchor:[-5,7]}),interactive:false}).addTo(labL); });
-    reg.places.forEach(p=>{ const big=/city|town/.test(p.t||''); L.marker([p.la,p.lo],{icon:L.divIcon({className:'lbl place'+(big?' big':''),html:esc(p.n),iconAnchor:[0,0]}),interactive:false}).addTo(placeL); });
+    reg.stations.forEach(s=>{ L.circleMarker([s.la,s.lo],{renderer:R,radius:2.6,color:dark?'#e8eaf0':'#171a21',weight:1,fillColor:dark?'#1a1e27':'#fff',fillOpacity:1,interactive:false}).addTo(staL); staPts.push(s); });
+    reg.places.forEach(p=>placePts.push(p));
   }
-  waterL.addTo(map); roadL.addTo(map); railL.addTo(map); 
-  const upd=()=>{ const z=map.getZoom(); if(z>=12) staL.addTo(map); else map.removeLayer(staL); if(z>=14) labL.addTo(map); else map.removeLayer(labL); if(z>=11&&z<15) placeL.addTo(map); else map.removeLayer(placeL); };
-  map.on('zoomend',upd); upd(); }
+  waterL.addTo(map); roadL.addTo(map); railL.addTo(map);
+  const upd=()=>{ const z=map.getZoom(); const b=map.getBounds().pad(0.15); if(z>=12) staL.addTo(map); else map.removeLayer(staL);
+    labL.clearLayers(); placeL.clearLayers();
+    if(z>=14){ let n=0; for(const s of staPts){ if(n>400) break; if(b.contains([s.la,s.lo])){ L.marker([s.la,s.lo],{icon:L.divIcon({className:'lbl sta',html:esc(s.n),iconAnchor:[-5,7]}),interactive:false}).addTo(labL); n++; } } labL.addTo(map); }
+    if(z>=10&&z<16){ let n=0; for(const p of placePts){ const big=/city|town/.test(p.t||''); if(z<12&&!big) continue; if(n>150) break; if(b.contains([p.la,p.lo])){ L.marker([p.la,p.lo],{icon:L.divIcon({className:'lbl place'+(big?' big':''),html:esc(p.n),iconAnchor:[0,0]}),interactive:false}).addTo(placeL); n++; } } placeL.addTo(map); } };
+  map.on('zoomend moveend',upd); upd(); }
 function isDark(){return false;}
 function renderLiveMap(day, route, pts){ const v=$('#view-map'); const side=day?dayHops(day,route):pointsPanel(pts);
   v.innerHTML=`<div class="stack"><div class="card flat"><span class="eyebrow">Live map</span><div class="h-row"><span class="sticker lg">${ICON('fuji')}</span><h1>Where everything is</h1></div><p class="muted">Pan, zoom, tap a pin. Red pins are your lists, teal are suggestions; pick a day to draw its route. Rail and metro lines, stations and districts come from OpenStreetMap${LIVE_OK?'':' (street tiles are blocked in this viewer, so the base is drawn from that data)'}.</p>
