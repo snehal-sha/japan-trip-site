@@ -41,19 +41,19 @@ window.PHOTOS = {
 },
 "d3": {
 "file": "img/d3.jpg",
-"title": "Ɛ̃fini EX-7 (E-FD3S) ver.INITIAL D.jpg",
-"artist": "Tokumeigakarinoaoshima",
-"lic": "CC BY-SA 4.0",
-"page": "https://commons.wikimedia.org/wiki/File:%C6%90%CC%83fini_EX-7_(E-FD3S)_ver.INITIAL_D.jpg",
-"alt": "A yellow Mazda RX-7 FD3S"
-},
-"d4": {
-"file": "img/d4.jpg",
 "title": "Chureito Pagoda and Mount Fuji 20241022.jpg",
 "artist": "This Photo was taken by Supanut Arunoprayote. Feel free to u",
 "lic": "CC BY 4.0",
 "page": "https://commons.wikimedia.org/wiki/File:Chureito_Pagoda_and_Mount_Fuji_20241022.jpg",
 "alt": "Chureito Pagoda with Mount Fuji behind"
+},
+"d4": {
+"file": "img/d4.jpg",
+"title": "Izu_Skyline_20120203.jpg",
+"artist": "Batholith",
+"lic": "Public domain",
+"page": "https://commons.wikimedia.org/wiki/File:Izu_Skyline_20120203.jpg",
+"alt": "The Izu Skyline ridge road with Mount Fuji ahead"
 },
 "d5": {
 "file": "img/d5.jpg",
