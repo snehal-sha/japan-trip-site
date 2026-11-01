@@ -4,7 +4,7 @@ window.TRIP = {
   start: '2026-11-16', end: '2026-11-25',
   rateINRperJPY: 0.61,
   synced: '2026-11-01',
-  booked: ['Shinkansen Tokyo → Kyoto on Nov 20 (your booking; adjust the departure time in Day 5 if it differs)'],
+  booked: ['Nozomi 117, Fri Nov 20, Tokyo 07:00 → Kyoto 09:12, car 15 seat 7-E, smartEX reservation 2001, ¥14,170. Boarding method is QR-ticket: either print or show the QR, or designate your Suica to the booking in the smartEX app and tap through the gate'],
   flights: {
     out: 'VN982 BLR 23:35 Nov 15 → HAN 05:50 · VN384 HAN 08:35 → Haneda T3 15:05 Nov 16 (Vietnam Airlines, 1 checked bag)',
     back: 'XJ603 Narita T2 11:10 Nov 25 → Don Mueang 16:50 · FD137 20:10 → BLR 22:30 (Thai AirAsia, 25 kg checked + 7 kg cabin)'
@@ -194,10 +194,10 @@ window.DAYS = [
    {t:'Dropped', ref:'p01', opt:true, dur:0, note:'K’s House Ito was the night here in the one-way plan. Omoren has no one-way, so the Izu night goes; the ryokan already covers your onsen. Keep it for a future Izu trip.'}
   ]},
  {n:5, date:'2026-11-20', dow:'Fri', title:'Your Shinkansen to Kyoto, Arashiyama, tea, katana, GEAR', tags:['nature','culture','drinking'], base:'Len Kyoto Kawaramachi', budget:26000,
-  why:'You have the train booked. An early arrival gets you into the bamboo before the midday crush; the afternoon strings tea, the katana shop and Gion along one line; GEAR is the one show in Japan built for a non-Japanese speaker.',
+  why:'Your train is booked: Nozomi 117 lands you in Kyoto at 09:12, early enough for the bamboo before the midday crush; the afternoon strings tea, the katana shop and Gion along one line; GEAR is the one show in Japan built for a non-Japanese speaker.',
   stops:[
-   {t:'06:40', title:'Nihonbashi → Tokyo station', dur:0, note:'10 min on foot or one stop. Ekiben and coffee on the platform. Times below assume the 07:00 Nozomi; shift them if your booking differs.', travel:'Nozomi 07:00 → Kyoto about 09:15'},
-   {t:'09:30', ref:'s53', dur:20, note:'Bag drop at Len (check-in is 15:00); your suitcase arrived by takkyubin.', travel:'JR Sagano line Kyoto → Saga-Arashiyama, 15 min'},
+   {t:'06:35', title:'Nihonbashi → Tokyo station', dur:0, note:'10 min on foot or one stop. Booked: Nozomi 117, 07:00 from Tokyo, car 15 seat 7-E (reservation 2001). Platform ekiben and coffee; designate your Suica in smartEX beforehand so you tap through instead of queuing for a paper ticket.', travel:'Nozomi 117, 07:00 → Kyoto 09:12'},
+   {t:'09:25', ref:'s53', dur:20, note:'You arrive 09:12. Bag drop at Len (check-in is 15:00); your suitcase arrived by takkyubin.', travel:'JR Sagano line Kyoto → Saga-Arashiyama, 15 min'},
    {t:'10:30', ref:'s38', dur:45, note:'Garden first (¥500), exit the north gate straight into the grove.'},
    {t:'11:15', ref:'p14', dur:40, note:'Walk it once, slowly; shoot upward with the zoom to lose the crowd.'},
    {t:'12:00', ref:'p26', dur:50, note:'¥1,000; closed Wednesdays, open today. Quiet after the grove.'},
@@ -363,7 +363,8 @@ window.CHECKLISTS = [
    {id:'b13', text:'Sushi Yuu Nov 17 (only if splurging)', ref:'p37'},
    {id:'b14', text:'Nintendo Museum: check for remaining November tickets', ref:'s50'},
    {id:'b15', text:'Hakone fallback only: Odakyu Romancecar seat Nov 18 07:00 if the car plan dies', ref:'s64'},
-   {id:'b16', text:'Nozomi Kyoto → Tokyo Sun Nov 22 about 16:30 (SmartEX); Tokyo → Kyoto Nov 20 is already booked', ref:'s62'}
+   {id:'b16', text:'Nozomi Kyoto → Tokyo Sun Nov 22 about 16:30 (smartEX)', ref:'s62'},
+   {id:'b17', text:'Nov 20 train is booked (Nozomi 117, 07:00, car 15 seat 7-E, res. 2001): designate your Suica to it in smartEX, or save the QR-ticket offline', ref:'s62'}
  ]},
  {group:'Documents and money', items:[
    {id:'d1', text:'Japan visa sticker in passport (application in this folder)'},
@@ -476,7 +477,7 @@ window.GUIDE = [
    ['Tokyo daily', 'Suica tap everywhere; ¥800–1,200 a day. No JR Pass needed on this route'],
    ['Tokyo → Hakone by car', 'Shuto Expressway → Tomei → Odawara-Atsugi road → Seisho bypass → Turnpike, about 1 h 45 and ¥3,500 in tolls from Ariake'],
    ['Fuji → Tokyo by car', 'Fuji IC → Tomei → Tokyo IC, 1 h 45 off-peak, 2 h 30 after 16:30; tolls about ¥4,500 including the Shuto'],
-   ['Tokyo → Kyoto', 'Booked. The plan assumes the 07:00 Nozomi (arrive 09:15); shift Day 5 if yours leaves later'],
+   ['Tokyo → Kyoto', 'Booked: Nozomi 117, 07:00 → 09:12 on Nov 20, car 15 seat 7-E, reservation 2001. Tap through with a designated Suica or scan the QR-ticket'],
    ['Kyoto → Tokyo', 'Nozomi 16:30 Sunday → Tokyo 18:45, ¥14,170 reserved on SmartEX'],
    ['Hakone without a car (fallback)', 'Odakyu Romancecar Shinjuku → Hakone-Yumoto 85 min ¥2,470; Hakone Tozan Bus T line to Sengokuhara 35 min ¥1,000'],
    ['Kyoto ↔ Nara', 'By car on Saturday (Route 24, 1 h 15). By train: Kintetsu Kyoto → Nara 35 min ¥760'],
