@@ -144,7 +144,6 @@ window.DAYS = [
    {t:'18:30', ref:'p31', note:'Watch two loops; shoot it on your phone tonight, on the Fuji tomorrow.', travel:'Walk 5 min'},
    {t:'19:00', ref:'s01', note:'Dinner on skewers at a counter; sit at Bar Albatross after (your list, inside the alley).'},
    {t:'19:00', ref:'p78', note:'¥500 seat charge, chandeliers, three floors of a bar the width of a corridor.', travel:'Walk 6 min'},
-   {t:'20:30', ref:'p27', note:'Godzilla head, Kabukicho Tower, the namco arcade on 4F. Ignore every tout.', travel:'Walk 5 min'},
    {t:'21:30', ref:'s02', note:'One or two bars, then bed. You have a 07:00 train in two days and jet lag to shed.'},
    {t:'Option', ref:'s78', opt:true, swap:'s02', note:'Late show under the Godzilla head instead of Golden Gai: anime in Dolby Atmos on night one, bed by midnight.'},
    {t:'Option', ref:'p64', opt:true, note:'If you land with energy: Chuo line to Nakano (5 min), Fujiya is open until 20:30 and the camera starts the trip tonight. Otherwise it is tomorrow at 10:00.'}
