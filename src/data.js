@@ -125,7 +125,7 @@ window.SUGGESTIONS = [
 
 // ---------- Stays ----------
 window.STAYS = [
- {nights:'Nov 16–17', place:'UNPLAN Shinjuku: BOOKED', ref:'s52', est:'¥16,100 for 2 nights, paid (direct, non-refundable, breakfast included)', why:'Walk to Kabukicho, Omoide Yokocho, Golden Gai; Chuo line to Nakano for the camera. Check-in 16:00–23:00, arrival given as 17:30'},
+ {nights:'Nov 16–17', place:'UNPLAN Shinjuku: BOOKED', ref:'s52', est:'¥16,100 for 2 nights, paid (direct, non-refundable, breakfast included)', why:'Walk to Omoide Yokocho and Golden Gai; Chuo line to Nakano for the camera. Check-in 16:00–23:00, arrival given as 17:30'},
  {nights:'Nov 18', place:'K’s House Ito Onsen: BOOKED', ref:'p01', est:'₹2,682 (about ¥4,400), 7-bed tatami dorm, onsen included; ₹322 paid, the rest at the desk', why:'The cultural-property ryokan-hostel at the end of the Fuji drive; baths open 24 h. Arrival given as 19:00, check-in closes 20:00; free cancellation until Nov 14. No car park: coin lot ¥500–1,000'},
  {nights:'Nov 19', place:'CITAN, Nihonbashi (hostel)', ref:'s73', est:'¥7,400 8-bed dorm, free cancellation to Nov 18 (or Kayabacho Tsukushi, ¥7,200)', why:'Car goes back to Ariake by 19:00; 8 min by taxi or 18 min by train to Tokyo station for your booked 07:00 Shinkansen'},
  {nights:'Nov 20–21', place:'Len Kyoto Kawaramachi (hostel)', ref:'s53', est:'¥9,000–12,000 for 2 nights', why:'Central; Pontocho and GEAR on foot; Kyoto station 15 min for the Saturday car'},
