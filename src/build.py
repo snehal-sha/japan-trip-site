@@ -1,7 +1,7 @@
 import pathlib
 S=pathlib.Path(__file__).parent
 r=lambda f:(S/f).read_text(encoding='utf-8')
-js=''.join(r(f) for f in ['place_photos.js','japan.js','places.generated.js','data.js','photos.js','app.js'])
+js=''.join(r(f) for f in ['place_photos.js','japan.js','places.generated.js','data.js','photos.js'])+'window.RATE='+r('rate.json').strip()+';\nwindow.GALLERY='+r('gallery.json').strip()+';\n'+r('app.js')
 page=r('head.html')+'<style>\n'+r('leaflet.css')+'\n'+r('app.css')+'\n</style>\n'+r('sprite.svg')+'\n'+r('header.html')+r('body.html')+'<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>\n<script>\n'+js+'\n</script>\n'
 out=pathlib.Path('/Users/ssha/work_oct/VisaDocs/japan-trip')
 (out/'index.html').write_text(page,encoding='utf-8')

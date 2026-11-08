@@ -607,5 +607,124 @@
   "best": "10:00–19:00",
   "use": "Radio Center: the original 1950s electronics arcade under the tracks; parts, tubes, oddities (your list)",
   "tip": "Next to Akihabara station; fits the Nov 23 afternoon"
+ },
+ "p88": {
+  "area": "Kiso Valley, Nagano",
+  "day": 0,
+  "best": "Any clear day; the Magome–Tsumago walk takes 3 h",
+  "use": "Kiso valley: cedar forest, emerald river and the Edo post towns of the old Nakasendo road (same village as your Atera Valley pin)",
+  "tip": "3 h 30 from Tokyo or 2 h 30 from Kyoto via Nagoya; only as a replacement for a Kyoto day, not an addition"
+ },
+ "p89": {
+  "area": "Togakushi, Nagano",
+  "day": 0,
+  "best": "Morning, before the buses; mist or first snow in late November",
+  "use": "Two-kilometre avenue of 400-year-old cedars to Togakushi's inner shrine; the most serene walk on your list",
+  "tip": "Hokuriku Shinkansen to Nagano (1 h 30) + bus 70 min; pairs with the snow monkeys and Zenkoji if you ever swap Kyoto for Nagano"
+ },
+ "p90": {
+  "area": "Hongo",
+  "day": 9,
+  "best": "Nov 23–25, the ginkgo avenue peaks in the last week of November",
+  "use": "University of Tokyo's double ginkgo avenue, solid gold in late November, free and open to walk in",
+  "tip": "Marunouchi line to Hongo-sanchome; 40 min on the Nov 24 free day between Jimbocho and Ueno"
+ },
+ "p91": {
+  "area": "Kyoto east",
+  "day": 7,
+  "best": "Before 09:00 on the Sunday; maples at their best in the last ten days of November",
+  "use": "Philosopher's Path: 2 km canal walk under maples from Ginkaku-ji to Nanzen-ji, Eikando at the south end",
+  "tip": "Bus 5 or 17 to Ginkakuji-michi; by 10:00 on the three-day weekend it is a queue"
+ },
+ "p92": {
+  "area": "Shinjuku",
+  "day": 0,
+  "best": "Any evening before 20:00",
+  "use": "Airsoft shooting range on the 8th floor of Marui Men: rent a replica pistol or rifle and shoot a paper target for 30–60 min",
+  "tip": "About ¥2,000–3,500 with rental; five minutes from UNPLAN if a Shinjuku evening has a gap"
+ },
+ "p93": {
+  "area": "Kawaguchiko",
+  "day": 3,
+  "best": "Morning on the drive day, clear air",
+  "use": "The viral Lawson with Fuji over its sign (your 'My Fuji Lawson'); shoot from the marked spot opposite the town hall",
+  "tip": "10 min from Oishi Park on the Wednesday drive; do not cross the road for the photo, there is a guard"
+ },
+ "p94": {
+  "area": "Yanaka",
+  "day": 0,
+  "best": "Check-in 15:00; the shared cypress bath in the evening",
+  "use": "Family ryokan in Yanaka since 1949, tatami rooms, about ¥6,000–9,000 a person without meals",
+  "tip": "Only if you trade one Kuramae night for a tatami night; Nippori station + 10 min walk"
+ },
+ "p95": {
+  "area": "Jimbocho",
+  "day": 9,
+  "best": "Tuesday or any weekday late morning; most shops close Sunday",
+  "use": "170 second-hand bookshops, print and poster dealers, and the densest run of curry houses in Tokyo (your 'ultra cool, must go')",
+  "tip": "Vintage Jinbocho on your list is inside it; lunch at Bondy or Kyoeido, then 10 min to Akihabara"
+ },
+ "p96": {
+  "area": "Uji",
+  "day": 0,
+  "best": "Mid-afternoon with a bowl of matcha and a sweet looking at the river",
+  "use": "Tsuen: tea shop at Uji bridge since 1160, the oldest in the world (your 'oldest tea shop')",
+  "tip": "JR Nara line 20 min from Kyoto; fits only with a half day in Uji (Byodo-in, Nintendo Museum)"
+ },
+ "p97": {
+  "area": "Kyoto north",
+  "day": 7,
+  "best": "Any day but Wednesday, 10:00–17:00; an hour with tea on the veranda",
+  "use": "Ichimonjiya Wasuke: aburi-mochi grilled beside Imamiya shrine since the year 1000 (your 'oldest mochi place'); ¥600 a plate",
+  "tip": "Bus 206 to Funaokayama; 15 min by taxi from the Ohara bus route on the Sunday"
+ },
+ "p98": {
+  "area": "Kyoto station",
+  "day": 5,
+  "best": "The 09:00–09:30 slot on Friday Nov 20, straight off the Nozomi",
+  "use": "teamLab Biovortex: the newest teamLab (Oct 2025), 10 min from Kyoto station, with works shown nowhere else",
+  "tip": "Timed tickets on teamlab.art, roughly ¥3,400–5,200 by slot; 90 min, then the rest of Kyoto"
+ },
+ "p99": {
+  "area": "Akihabara",
+  "day": 0,
+  "best": "Not worth planning around",
+  "use": "Lammtarra Epicali: an Akihabara adult-video and goods shop, 18+, not a film DVD store",
+  "tip": "Your 'DVD store' note points elsewhere; Jimbocho's poster dealers or Tower Records serve that better"
+ },
+ "p100": {
+  "area": "Waseda",
+  "day": 0,
+  "best": "Lunch 11:30–14:00 or an early dinner; cash only",
+  "use": "Tegutan ramen: a ten-seat counter opened June 2026 serving one spicy Korean-style ramen and one cold noodle, ¥1,000 each (your 'Peak Ramen')",
+  "tip": "Tozai line to Waseda + 8 min; fits the Nov 17 lunch after Nakano or a Nov 24 dinner"
+ },
+ "p101": {
+  "area": "Toranomon",
+  "day": 0,
+  "best": "Breakfast or sunset; book a window table",
+  "use": "The Blue Room: 31st-floor grill at the Tokyo EDITION with Tokyo Tower filling the window (your 'good steak')",
+  "tip": "Steak dinner ¥12,000–20,000, breakfast about ¥5,000; a Nov 25 breakfast is the only slot that fits, and it is tight"
+ },
+ "p102": {
+  "area": "Hakone",
+  "day": 4,
+  "best": "Nov 19 12:55 on the Thursday drive, 25 min",
+  "use": "Amazake Chaya: thatched Edo-era tea house on the old Tokaido stone road; amazake and charcoal-grilled chikara-mochi by the hearth (same place as suggestion s110)",
+  "tip": "07:00–17:30 every day, 30-car lot; ten minutes from the Hakone Turnpike gate"
+ },
+ "p103": {
+  "area": "Shibuya",
+  "day": 0,
+  "best": "An evening; open to 22:00",
+  "use": "Tower Records Shibuya: nine floors of new CDs and Japanese vinyl pressings, the largest record store in the world",
+  "tip": "Two minutes from Mandarake Shibuya; for used vinyl Shimokitazawa and Disk Union are cheaper"
+ },
+ "p104": {
+  "area": "Shinjuku",
+  "day": 1,
+  "best": "First night, 19:00",
+  "use": "Omoide Yokocho: smoky yakitori lanes by the Shinjuku tracks, ¥300–500 a skewer; Bar Albatross is inside (same place as suggestion s01)",
+  "tip": "Pick a stall by the smell, 40 minutes, then Albatross and Golden Gai"
  }
 }

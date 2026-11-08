@@ -3,7 +3,7 @@ window.TRIP = {
   title: 'Snehal in Japan',
   start: '2026-11-16', end: '2026-11-25',
   rateINRperJPY: 0.61,
-  synced: '2026-11-01',
+  synced: '2026-11-08',
   booked: ['Nozomi 117, Fri Nov 20, Tokyo 07:00 → Kyoto 09:12, car 15 seat 7-E, smartEX reservation 2001, ¥14,170. Boarding method is QR-ticket: either print or show the QR, or designate your Suica to the booking in the smartEX app and tap through the gate'],
   flights: {
     out: 'VN982 BLR 23:35 Nov 15 → HAN 05:50 · VN384 HAN 08:35 → Haneda T3 15:05 Nov 16 (Vietnam Airlines, 1 checked bag)',
@@ -13,7 +13,7 @@ window.TRIP = {
 
 // ---------- Suggestions (Claude picks; not from your lists) ----------
 window.SUGGESTIONS = [
- {id:'s01', name:'Omoide Yokocho', area:'Shinjuku', lat:35.6933, lng:139.6997, cat:'Yakitori alleys', hours:'Most stalls 17:00–late', best:'First night, 19:00', use:'Smoky yakitori lanes by the tracks; ¥300–500 a skewer. Bar Albatross from your list is inside', day:1},
+ {id:'s01', name:'Omoide Yokocho', area:'Shinjuku', lat:35.6933, lng:139.6997, cat:'Yakitori alleys', hours:'Most stalls 17:00–late', best:'First night, 19:00', use:'Smoky yakitori lanes by the tracks; ¥300–500 a skewer. Bar Albatross from your list is inside', day:1, dup:'p104'},
  {id:'s02', name:'Golden Gai', area:'Shinjuku', lat:35.6941, lng:139.7047, cat:'Bar district', hours:'20:00–03:00', best:'After 21:00', use:'200 six-seat bars. Pick ones with a “no cover” or ¥500 sign; talk to the master', day:1},
  {id:'s03', name:'Ichiran Shinjuku (Chuo-higashiguchi)', area:'Shinjuku', lat:35.6919, lng:139.7032, cat:'Ramen', hours:'24 h', best:'Late night', use:'Your “Kore ichiraan”: solo booths, tonkotsu, order sheet', day:2},
  {id:'s04', name:'Fuunji', area:'Shinjuku', lat:35.6882, lng:139.6990, cat:'Tsukemen', hours:'11:00–15:00, 17:00–21:00', best:'17:00 sharp to beat the queue', use:'The tsukemen that locals queue for; ¥1,100', day:2},
@@ -119,7 +119,7 @@ window.SUGGESTIONS = [
  {id:'s107', name:'Izu Skyline (Kameishi gate → Atami pass)', area:'Izu', lat:35.0224, lng:139.0422, cat:'Toll road', hours:'24 h; cashless at the gates', best:'Nov 19 09:45', use:'The ridge road along the spine of Izu: 40 km, you drive the northern 30. Fuji ahead, Sagami Bay on the right, Suruga Bay on the left; the Sukumoyama pull-off for the photo. Toll about ¥1,000 for this stretch after the Oct 2025 rise', day:4},
  {id:'s108', name:'Jukkoku Pass', area:'Hakone', lat:35.1277, lng:139.0409, cat:'Viewpoint', hours:'24 h; cable car 08:50–16:50', best:'Nov 19 11:00', use:'Named for the ten old provinces in view: Fuji, both bays, the Hakone crater rim, the Boso peninsula on clear days. The car park already has most of it; 20 min', day:4},
  {id:'s109', name:'Bakery & Table Hakone (Motohakone)', area:'Hakone', lat:35.2028, lng:139.0306, cat:'Bakery with foot bath', hours:'Bakery 10:00–17:00, café 09:00–17:00, open daily', best:'Nov 19 12:50', use:'Lunch with your feet in a hot-spring foot bath facing Lake Ashi; the red torii of Hakone Shrine is 5 min along the shore. No own car park: use the Motohakone-ko pay lots', day:4},
- {id:'s110', name:'Amazake Chaya (old Tokaido tea house)', area:'Hakone', lat:35.2020, lng:139.0487, cat:'Tea house', hours:'07:00–17:30, every day; 30-car lot', best:'Nov 19 14:00', use:'A thatched tea house on the old Tokaido highway, serving since the early 1600s: unsweetened rice-koji amazake and chikara-mochi grilled over charcoal. Your request; 25 min', day:4, you:true},
+ {id:'s110', name:'Amazake Chaya (old Tokaido tea house)', area:'Hakone', lat:35.2020, lng:139.0487, cat:'Tea house', hours:'07:00–17:30, every day; 30-car lot', best:'Nov 19 14:00', use:'A thatched tea house on the old Tokaido highway, serving since the early 1600s: unsweetened rice-koji amazake and chikara-mochi grilled over charcoal. Your request; 25 min', day:4, you:true, dup:'p102'},
  {id:'s111', name:'Tenzan Tohji-kyo (Hakone Yumoto day onsen)', area:'Hakone', lat:35.2249, lng:139.0887, cat:'Day onsen', hours:'09:00–22:00', best:'Nov 19 14:45, optional', use:'Outdoor hot-spring baths by the Haya river used by locals, ¥1,450. Skip it and you are back in Tokyo an hour earlier', day:0},
  {id:'s112', name:'OnlyJDM Car Rental, Tokyo North store (足立区南花畑)', area:'Adachi', lat:35.79194, lng:139.82304, cat:'JDM rental', hours:'10:00–18:30', best:'10:00 pickup Nov 18, return by 18:30 Nov 19', use:'2015 Mazda MX-5 ND 1.5 S Leather Package, 6-speed manual: ¥17,000 a day; cover Lite ¥3,000 (third-party only) or Premium ¥9,000 a day; 200 km per 24 h then ¥55 per km; ¥50,000 refundable deposit; 23+ with 3 years on a manual licence; physical licence + passport + IDP. 3-7-16 Minamihanahata, Adachi-ku, 10 min on foot from Rokucho on the Tsukuba Express. Licensed operator (J Project Co., Ltd.), Google 5.0 from 751 reviews, English support, info@only-jdm.com', day:3},
  {id:'s113', name:'Hakone Turnpike, Odawara gate (アネスト岩田ターンパイク箱根)', area:'Odawara', lat:35.2424, lng:139.1398, cat:'Toll road', hours:'05:30–22:30', best:'Nov 19 13:50, the climb', use:'The 13.8 km toll road from Hayakawa in Odawara up to Daikanzan at 1,011 m: long sweeping bends, Sagami Bay opening up behind you, Fuji ahead near the top; the road the Japanese car magazines test on. ¥900 each way for a normal car, pay at the gate', day:4},
