@@ -335,17 +335,25 @@ window.SHOPPING = [
  {item:'Black Thunder bars', where:'Any conbini / Don Quijote', refs:['s06'], day:1, est:'¥40 each', note:'Buy a box'},
  {item:'Calbee chips', where:'Conbini; Calbee+ Harajuku for fresh', refs:['s09'], day:9, est:'¥200–800', note:''},
  {item:'Tokyo Banana', where:'Tokyo Station / Narita', refs:['s56'], day:10, est:'¥1,200', note:'Buy at the airport, it is fragile'},
- {item:'Furikake, dashi, curry roux, mirin', where:'Any supermarket (Life, OK) or Don Quijote', refs:['s06'], day:9, est:'¥2,000–4,000', note:'Powdered dashi and furikake are the lightest flavour per gram'},
+ {item:'Furikake, dashi, yuzu kosho, chilli mixes (shichimi), curry roux, mirin', where:'Any supermarket (Life, OK) or Don Quijote', refs:['s06'], day:9, est:'¥2,000–4,000', note:'Powdered dashi and furikake are the lightest flavour per gram; yuzu kosho comes in small jars or tubes, checked bag'},
  {item:'Mochi, namagashi, wagashi', where:'Nakatanidou (Nara), department-store basements', refs:['s44'], day:7, est:'¥500–2,000', note:'Eat fresh; only yokan travels'},
  {item:'Ichiran instant ramen packs', where:'Ichiran shop / Don Quijote', refs:['s03'], day:2, est:'¥1,500', note:''},
  {item:'Noren curtain + home decor', where:'Nippori Fabric Town, Kappabashi, Asakusa', refs:['s57','p71'], day:9, est:'¥2,000–8,000', note:''},
  {item:'Incense sticks', where:'Kungyokudo / Shoyeido (Kyoto), Nippon Kodo (Ginza)', refs:['s42'], day:6, est:'¥1,000–3,000', note:'Kyoto has the old houses'},
  {item:'YSL lipstick (gift)', where:'Isetan Shinjuku, Don Quijote, airport duty-free', refs:['s06'], day:9, est:'¥4,000–5,500', note:'Duty-free at Narita after security is simplest'},
- {item:'Stationery for everyone', where:'Itoya Ginza, Loft, Sekaido', refs:['s20'], day:8, est:'¥2,000–5,000', note:''},
+ {item:'Stationery for everyone', where:'Itoya Ginza, Loft, Sekaido', refs:['s20'], day:8, est:'¥2,000–5,000', note:'Including the mini set from your saved reel: show the reel to the staff at Itoya'},
  {item:'Vintage finds', where:'Oedo Antique Market, Koenji, Shimokitazawa, Nakano Broadway', refs:['s22','p20','p69','p73'], day:8, est:'open', note:''},
  {item:'Music stuff (strings, pedals, vinyl)', where:'Ochanomizu guitar street, Disk Union', refs:['s16','s05'], day:8, est:'open', note:''},
  {item:'Bonsai for Hafis', where:'Bonsai-themed instead: pot, tools, a kokedama kit', refs:['p71'], day:9, est:'¥3,000–8,000', note:'Live plants cannot enter India without a phytosanitary certificate'},
- {item:'3Coins ¥800 carry bag', where:'3Coins (Shinjuku Lumine, Ueno Marui)', refs:['s52'], day:9, est:'¥880', note:'For the souvenir overflow; still counts toward 7 kg cabin'}
+ {item:'3Coins ¥800 carry bag, vacuum bags and pump', where:'3Coins (Shinjuku Lumine, Ueno Marui)', refs:['s52'], day:9, est:'¥880 + about ¥550', note:'For the souvenir overflow; still counts toward 7 kg cabin. Ueno is 10 min from Nui'},
+  {item:'Shapton Kuromaku #1000 whetstone', where:'Kappabashi knife shops (Seisuke, Kama-Asa), or Yodobashi Akiba', refs:['p70','s58'], day:9, est:'¥4,000–5,500', note:'From your note. About 700 g; wrap it, it chips'},
+  {item:'Fork, kitchen scissors, nail clippers', where:'Kappabashi; Kama-Asa for the scissors', refs:['p71','s58'], day:9, est:'¥3,000–8,000', note:'From your note. Blades go in the checked bag'},
+  {item:'Tenugui (printed cotton cloth)', where:'Asakusa: Nakamise and the side streets by Sensō-ji', refs:['p54'], day:9, est:'¥1,000–1,800 each', note:'From your note. Flat and light: the easiest gift on the list'},
+  {item:'Fox mask (kitsune)', where:'Nakamise in Asakusa; in Kyoto only at Fushimi Inari, which is not in the plan', refs:['p54'], day:9, est:'¥1,500–4,000', note:'From your note. Fushimi Inari is 5 min by JR from Kyoto station if you want the Kyoto one'},
+  {item:'Kanzashi hairpin with dangles, for Riya', where:'Asakusa Nakamise, or Teramachi arcade in Kyoto near Len', refs:['p54'], day:9, est:'¥1,500–5,000', note:'From your note'},
+  {item:'Kunai (replica)', where:'Asakusa souvenir and ninja-goods shops, or Tozando in Kyoto', refs:['p54','p65'], day:9, est:'¥1,500–4,000', note:'From your note. Rubber or wood is safe; metal is an unknown at Indian customs, checked bag only'},
+  {item:'Kimono or yukata (vintage)', where:'Oedo Antique Market; Toji market in Kyoto on Nov 21', refs:['s22','s35'], day:8, est:'¥1,000–8,000', note:'From your note. Second-hand silk is cheap at both markets; check for stains in daylight'},
+  {item:'Amiibo NFC emulator (Allmiibo / Pixl type)', where:'Probably not in Japan: ask at Akihabara parts stalls, otherwise online', refs:['p74'], day:7, est:'¥3,000–6,000', note:'From your note. A Nov 11 search found no shop in Japan selling these, only online sellers shipping from China (allmiibo.store, AliExpress, about $20–30). Plan to order it at home'}
 ];
 
 // ---------- Food list ----------
