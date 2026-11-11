@@ -625,7 +625,7 @@ window.SUGGESTIONS = [
 window.STAYS = [
  {nights:'Nov 16–17', place:'UNPLAN Shinjuku: BOOKED', ref:'s52', est:'¥16,100 for 2 nights, paid (direct, non-refundable, breakfast included)', why:'Walk to Omoide Yokocho and Golden Gai; Chuo line to Nakano for the camera. Check-in 16:00–23:00, arrival given as 17:30'},
  {nights:'Nov 18', place:'K’s House Ito Onsen: BOOKED', ref:'p01', est:'₹2,682 (about ¥4,400), 7-bed tatami dorm, onsen included; ₹322 paid, the rest at the desk', why:'The cultural-property ryokan-hostel at the end of the Fuji drive; baths open 24 h. Arrival given as 19:00, check-in closes 20:00; free cancellation until Nov 14. No car park: coin lot ¥500–1,000'},
- {nights:'Nov 19', place:'MANGA ART HOTEL, TOKYO (Kanda), booked', ref:'s114', est:'Booked on Booking.com, one night; check-in 16:00–23:00, check-out from 05:00', why:'Car goes back to Adachi by 18:30, then Tsukuba Express to Akihabara and a 15 min walk; Awajicho is 5 min away and the Marunouchi line reaches Tokyo station in two stops for your booked 07:00 Shinkansen'},
+ {nights:'Nov 19', place:'MANGA ART HOTEL, TOKYO (Kanda), booked', ref:'s114', est:'Booked on Booking.com, one night, ₹2,965 non-refundable; check-in 16:00–23:00, check-out from 05:00', why:'Car goes back to Adachi by 18:30, then Tsukuba Express to Akihabara and a 15 min walk; Awajicho is 5 min away and the Marunouchi line reaches Tokyo station in two stops for your booked 07:00 Shinkansen'},
  {nights:'Nov 20–21', place:'Len Kyoto Kawaramachi (hostel), or one ryokan night', ref:'s53', est:'¥9,000–12,000 for 2 nights; a Ryokan Shimizu night instead is ¥12,000–16,000', why:'Central; Tozando and the Kiyamachi dinners on foot; Kyoto station 15 min for the Saturday car and the Sunday train. Your Sawanoya note asked for a good Kyoto ryokan: s115 is the honest option'},
  {nights:'Nov 22–24', place:'Nui. Hostel & Bar Lounge, Kuramae', ref:'s51', est:'¥13,500–18,000 for 3 nights', why:'Back Sunday evening; Asakusa, Kappabashi and the antique market within 25 min; Skyliner from Ueno'}
 ];
@@ -862,7 +862,7 @@ window.FOOD = [
 window.CHECKLISTS = [
  {group:'Book now', items:[
    {id:'b1', text:'K’s House Ito Onsen, Nov 18: BOOKED on Hostelworld (7-bed dorm, arrival 19:00, free cancellation to Nov 14). Pay the balance at check-in and mention the 06:00 departure', ref:'p01'},
-   {id:'b2', text:'MANGA ART HOTEL, TOKYO (Kanda), Nov 19: BOOKED on Booking.com. Check-in 16:00–23:00, check-out from 05:00; keep the confirmation offline', ref:'s114'},
+   {id:'b2', text:'MANGA ART HOTEL, TOKYO (Kanda), Nov 19: BOOKED on Booking.com, ₹2,965, non-refundable. Check-in 16:00–23:00, check-out from 05:00; keep the confirmation offline', ref:'s114'},
    {id:'b3', text:'UNPLAN Shinjuku, Nov 16–17: BOOKED direct (non-refundable, breakfast included, ¥16,100). Confirmation comes from tripla; arrival given as 17:30', ref:'s52'},
    {id:'b4', text:'Kyoto beds Nov 20–21: Len Kawaramachi 2 nights (¥9,000–12,000), or one of them as a ryokan night (Ryokan Shimizu, ¥12,000–16,000). Holiday weekend: book now', ref:'s53', ref:'s53'},
    {id:'b5', text:'Toyota Rent a Car Kyoto station Shinkansen exit, Sat Nov 21 08:30 → 19:30, compact about ¥9,600 (rent.toyota.co.jp, English). Nissan Kyoto-Shinkansen-ekimae (open to 22:00) if you want a later return', ref:'s93', ref:'s93'},
@@ -918,7 +918,7 @@ window.CHECKLISTS = [
 // ---------- Budget ----------
 window.BUDGET = {
  cats: [
-  {key:'stay', label:'Stays (9 nights)', lean:50000, mid:60000, splurge:90000, note:'UNPLAN ¥16,100 paid; K’s House ¥4,400; Nov 19 Manga Art Hotel booked; Len and Nui dorms ¥4,500–6,000 a night; splurge = a Kyoto ryokan night'},
+  {key:'stay', label:'Stays (9 nights)', lean:50000, mid:60000, splurge:90000, note:'UNPLAN ¥16,100 paid; K’s House ¥4,400; Nov 19 Manga Art Hotel ₹2,965 (about ¥4,900), non-refundable; Len and Nui dorms ¥4,500–6,000 a night; splurge = a Kyoto ryokan night'},
   {key:'transport', label:'Trains, metro, buses, luggage', lean:42500, mid:47500, splurge:57500, note:'Shinkansen ¥28,900; Skyliner ¥2,580; metro ¥1,000/day; station lockers ¥1,000; no luggage forwarding'},
   {key:'cars', label:'Cars: MX-5 two days + Kyoto day', lean:95000, mid:99000, splurge:120000, note:'OnlyJDM MX-5 paid ¥59,180 (2 days, Premium cover, ETC card, phone mount, tax) + about 100 km over the 400 km allowance ¥5,500 + tolls ¥12,000 (ETC on the expressways; Izu Skyline and Turnpike by card) + fuel ¥6,500; Kyoto compact ¥9,600 + tolls/fuel ¥5,000. The ¥50,000 deposit comes back'},
   {key:'food', label:'Food', lean:40000, mid:60000, splurge:90000, note:'¥4,500–10,000 a day; one omakase in splurge'},
@@ -930,6 +930,7 @@ window.BUDGET = {
  // Bookings already paid. They count as spent on every device. amt is yen; inr is what the card was charged, when it was a rupee payment.
  paid: [
   {date:'', desc:'UNPLAN Shinjuku, Nov 16–17 (2 nights, non-refundable)', amt:16100, cat:'stay'},
+  {date:'', desc:'Manga Art Hotel, Kanda, Nov 19 (Booking.com, non-refundable)', amt:4861, inr:2965, cat:'stay'},
   {date:'2026-11-09', desc:'OnlyJDM MX-5, Nov 18–19 (2 days, Premium cover, ETC card)', amt:59180, cat:'cars'},
   {date:'', desc:'Nozomi 117 Tokyo → Kyoto, Nov 20 (smartEX)', amt:14170, cat:'transport'},
   {date:'2026-11-11', desc:'Waraku samurai session, Nov 20 10:00 (Airbnb; ₹10,462 charged + ₹172 credit)', amt:17433, inr:10634.31, cat:'tickets'}
