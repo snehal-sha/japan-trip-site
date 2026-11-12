@@ -1,0 +1,6 @@
+Option photos (personal trip planning).
+kawazu.jpg   Deaidaru Fall in Kawazu Seven Falls, by Osumi Akari, CC BY-SA 4.0, Wikimedia Commons
+joren.jpg    Joren Falls 01, by Σ64, CC BY 3.0, Wikimedia Commons
+hozukyo.jpg  Hozukyo, by Laichuan Yinfu, CC BY-SA 3.0, Wikimedia Commons
+hozuboat.jpg Hozugawa-Kudari 201126a, CC BY-SA 4.0, Wikimedia Commons
+tsuen.jpg, kurama.jpg  from the site's Rate-tab photo sheets (sources in src/gallery.json)
