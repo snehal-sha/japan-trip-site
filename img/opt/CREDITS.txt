@@ -4,3 +4,6 @@ joren.jpg    Joren Falls 01, by Σ64, CC BY 3.0, Wikimedia Commons
 hozukyo.jpg  Hozukyo, by Laichuan Yinfu, CC BY-SA 3.0, Wikimedia Commons
 hozuboat.jpg Hozugawa-Kudari 201126a, CC BY-SA 4.0, Wikimedia Commons
 tsuen.jpg, kurama.jpg  from the site's Rate-tab photo sheets (sources in src/gallery.json)
+tadasu.jpg: "Tadasu no mori 200906b" by NEON_ja, Wikimedia Commons, CC BY-SA 3.0 (cropped)
+inari.jpg: "Fushimi Inari Taisha- Part II - FushimiInari246" by lumoplank, Wikimedia Commons, CC0 (cropped)
+wasuke.jpg, philpath.jpg: cropped from the site's own photo sheets (img/pl/g/s16.jpg, s15.jpg); sources listed in src/gallery.json
