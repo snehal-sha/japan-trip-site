@@ -341,7 +341,7 @@ window.SHOPPING = [
  {item:'Takayama chasen (whisk)', where:'Nara craft shops near Nakatanidou, or Ippodo', refs:['s44','s43'], day:7, est:'¥3,000–6,000', note:'Takayama is the whisk village in Nara prefecture'},
  {item:'Katana: bokken or iaito (probably skipped)', where:'Tozando Shogoin, Kyoto', refs:['p65'], day:5, est:'Bokken with guard and sheath about ¥9,000–10,000; iaito from ¥33,000', note:'On Nov 10 you said you will probably skip it. Wood is safe for Indian customs; a metal blade is an unknown'},
  {item:'Onitsuka Tiger (embroidered NIPPON MADE)', where:'NIPPON MADE Ginza or Omotesando flagship', refs:['s19','s11'], day:8, est:'¥30,000–45,000', note:'Mexico 66 regular ¥15,000–18,000'},
- {item:'HHKB / Realforce keyboard', where:'Yodobashi Akiba', refs:['p76'], day:8, est:'¥30,000–40,000', note:'HHKB Hybrid Type-S about ¥36,850; try both on the floor'},
+ {item:'HHKB / Realforce keyboard (dropped Nov 14)', where:'Yodobashi Akiba', refs:['p76'], day:8, est:'—', note:'Dropped from the list on Nov 14: it saves ¥30,000–40,000 and about 1 kg'},
  {item:'Tamagotchi', where:'Kiddy Land or Yodobashi', refs:['s10','p76'], day:8, est:'¥3,000–5,000', note:''},
  {item:'Matcha-colour Casio', where:'Yodobashi / Bic', refs:['p76'], day:8, est:'¥5,000–20,000', note:'Steven san’s pick'},
  {item:'LSD: Dream Emulator (PS1)', where:'Super Potato, Mandarake (Nakano / Shibuya)', refs:['s14','p73','p68'], day:8, est:'¥30,000–60,000 if found', note:'Rare; ask at the counter, check Surugaya online'},
@@ -440,7 +440,7 @@ window.CHECKLISTS = [
    {id:'p4', text:'Layers: Nov is 8–16 °C in Tokyo, 3–10 °C in Hakone; light down + rain shell'},
    {id:'p5', text:'Walking shoes you can slip off (ryokan, temples)'},
    {id:'p6', text:'Small towel (onsen), coin pouch, tote for trash (no public bins)'},
-   {id:'p7', text:'Shopping goes home in a second bag: a fold-flat duffel or a cheap suitcase from Don Quijote in Tokyo, Nov 22–24 (¥3,000–6,000). 25 kg checked + 7 kg cabin on the way home; the knife must be checked'},
+   {id:'p7', text:'Shopping goes home in a second bag: a fold-flat duffel or a cheap suitcase from Don Quijote in Tokyo, Nov 22–24 (¥3,000–6,000). 25 kg checked + 7 kg cabin on the way home; the knife must be checked. Weight check of Nov 14 (my estimate): your own things about 12 kg, the shopping list without the keyboard 11–16 kg, so 23–28 kg of the 32 kg; keep thrift and antique finds to about 4 kg, or add checked weight in AirAsia’s Manage booking before you fly. Power banks ride in the cabin, knives, whetstone, scissors and kunai in the checked bag, and two 1 m wooden swords need their own long checked piece'},
    {id:'p8', text:'Kyoto backpack, two nights, packed on Wed Nov 18 night: 2 changes of clothes, sleepwear, toiletries, chargers and power bank, camera, passport, cash and cards, a warm layer and gloves for the dawn market, a fold-flat tote for market finds, the Enkōji confirmation screenshot. Nothing valuable stays in the stored suitcase'}
  ]},
  {group:'Daily rituals', items:[
@@ -460,8 +460,8 @@ window.BUDGET = {
   {key:'food', label:'Food', lean:40000, mid:60000, splurge:90000, note:'¥4,500–10,000 a day; one omakase in splurge'},
   {key:'nights', label:'Nights out', lean:12000, mid:25000, splurge:45000, note:'5–6 drinking nights at ¥2,000–7,000'},
   {key:'tickets', label:'Tickets and experiences', lean:35000, mid:45000, splurge:52000, note:'Waraku sword session paid ₹10,634 (about ¥17,400), Skytree ¥2,100, Enkōji ¥1,500, Ohara ¥1,600, Tokaikan ¥500, Hakone Open-Air Museum ¥2,000, airsoft ¥3,000, Todai-ji ¥800; teamLab Biovortex only in splurge'},
-  {key:'camera', label:'Camera', lean:40000, mid:70000, splurge:90000, note:'X-A5/X-T200 kit → X-E3/X-T20 kit → X-T30 II'},
-  {key:'shopping', label:'Shopping', lean:60000, mid:120000, splurge:160000, note:'Knife, Onitsuka, keyboard, bokken, tea, snacks, gifts'}
+  {key:'camera', label:'Camera', lean:60000, mid:80000, splurge:145000, note:'Used Fujifilm from the Guide shortlist. Lean: X-A5/X-T200 kit; mid: your ¥80,000 budget, an X-E3/X-T20 body with a lens; splurge: X-T30 II + XF 18-55 + spare battery and card'},
+  {key:'shopping', label:'Shopping', lean:96000, mid:165000, splurge:244000, note:'Your Nov 14 list without the keyboard (dropped Nov 14), priced item by item (low end ¥96,000, high end ¥244,000), with ¥5,000–20,000 for thrift and antique finds. Not included: the LSD PS1 game if found (¥30,000–60,000), Onitsuka Tiger (¥15,000–45,000), the amiibo emulator (order at home)'}
  ],
  // Bookings already paid. They count as spent on every device. amt is yen; inr is what the card was charged, when it was a rupee payment.
  paid: [
@@ -471,6 +471,28 @@ window.BUDGET = {
   {date:'', desc:'Nozomi 117 Tokyo → Kyoto, Nov 20 (smartEX)', amt:14170, cat:'transport'},
   {date:'2026-11-13', desc:'Nozomi 416 Kyoto → Tokyo, Nov 22 (smartEX)', amt:14170, cat:'transport'},
   {date:'2026-11-11', desc:'Waraku samurai session, Nov 20 10:00 (Airbnb; ₹10,462 charged + ₹172 credit)', amt:17433, inr:10634.31, cat:'tickets'}
+ ],
+ // Booked but not charged yet, or paid on the day. Updated Nov 14. Not counted as spent until you log it.
+ due: [
+  {when:'Nov 18, at check-in', desc:'K’s House Itō, Nov 18 (balance at the desk)', amt:4400, cat:'stay'},
+  {when:'Nov 18, card charged', desc:'The Pocket Hotel, Nov 21 (Agoda, pay later)', amt:25628, inr:15633, cat:'stay'},
+  {when:'Booking.com', desc:'Tsukimi Hotel, Gion, Nov 20', amt:11000, cat:'stay'},
+  {when:'Agoda', desc:'Nui. Hostel, Nov 22–25 (3 nights)', amt:23764, inr:14496, cat:'stay'},
+  {when:'Nov 22, at Nui', desc:'Suitcase storage at Nui, Nov 19–22', amt:1500, cat:'transport'},
+  {when:'Nov 20, at the gate', desc:'Enkōji entry, 14:00 slot', amt:1500, cat:'tickets'},
+  {when:'Nov 19, at OnlyJDM', desc:'MX-5 over-km charge', amt:5500, cat:'cars'},
+  {when:'Nov 18–19, ETC card', desc:'MX-5 tolls (expressways, Izu Skyline, Turnpike)', amt:12000, cat:'cars'},
+  {when:'Nov 19', desc:'MX-5 fuel, full tank at return', amt:6500, cat:'cars'},
+  {when:'Nov 24 night', desc:'Skyliner to Narita, Nov 25 07:20 (not booked yet)', amt:2580, cat:'transport'}
+ ],
+ // Whole-trip outlook beyond the bookings: estimates, low and high.
+ outlook: [
+  {label:'Food', lo:40000, hi:90000, note:'¥4,500–10,000 a day, with the wagyu dinner on Nov 23 (about ¥13,000)'},
+  {label:'Nights out', lo:12000, hi:45000, note:'5–6 drinking nights, Golden Gai seat charges'},
+  {label:'Local trains, buses, taxis', lo:14000, hi:18000, note:'Suica top-ups about ¥1,000 a day, two Kyoto taxis about ¥3,300'},
+  {label:'Entry tickets still to pay', lo:9000, hi:15000, note:'Gyoen ¥500, airsoft ¥3,000, Tōkaikan ¥500, Tōdai-ji ¥800, Ōhara ¥1,600, Skytree ¥2,100, parking; teamLab only at the top end'},
+  {label:'Camera', lo:60000, hi:145000, note:'Used Fujifilm; your plan is ¥80,000'},
+  {label:'Shopping list', lo:96000, hi:244000, note:'30 items from your Nov 14 list, keyboard dropped; thrift and antiques ¥5,000–20,000'}
  ]
 };
 
