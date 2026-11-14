@@ -40,12 +40,12 @@ window.PHOTOS = {
 "alt": "A dense shopping street in Shimokitazawa"
 },
 "d3": {
-"file": "img/d3.jpg",
-"title": "Chureito Pagoda and Mount Fuji 20241022.jpg",
-"artist": "This Photo was taken by Supanut Arunoprayote. Feel free to u",
-"lic": "CC BY 4.0",
-"page": "https://commons.wikimedia.org/wiki/File:Chureito_Pagoda_and_Mount_Fuji_20241022.jpg",
-"alt": "Chureito Pagoda with Mount Fuji behind"
+"file": "img/d3-hakone.jpg",
+"title": "Hakone5.jpg",
+"artist": "leon&mae",
+"lic": "CC BY 2.0",
+"page": "https://commons.wikimedia.org/wiki/File:Hakone5.jpg",
+"alt": "Henry Moore bronzes on the lawn of the Hakone Open-Air Museum"
 },
 "d4": {
 "file": "img/d4.jpg",

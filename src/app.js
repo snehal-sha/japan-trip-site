@@ -374,7 +374,7 @@ function renderGuide(){ const G=window.GUIDE; $('#view-guide').innerHTML=`<div c
 // Live forecast on each day card. Fetches Open-Meteo from the browser (public coordinates only),
 // caches for 45 min, and writes a "call" for the weather switches. Fails silently where fetch is blocked.
 const WX_P={tokyo:[35.68,139.76,'Tokyo'],fuji:[35.46,138.60,'Fuji lakes'],ito:[34.97,139.10,'Ito coast'],hakone:[35.20,139.02,'Hakone'],kyoto:[35.01,135.77,'Kyoto'],mitarai:[34.25,135.85,'Mitarai Valley'],nara:[34.69,135.84,'Nara']};
-const WX_DAY={1:['tokyo'],2:['tokyo'],3:['fuji','ito'],4:['ito','hakone'],5:['kyoto'],6:['mitarai','nara'],7:['kyoto','fuji'],8:['tokyo'],9:['tokyo'],10:['tokyo']};
+const WX_DAY={1:['tokyo'],2:['tokyo'],3:['hakone','ito'],4:['ito','hakone','fuji'],5:['kyoto'],6:['mitarai','nara'],7:['kyoto','fuji'],8:['tokyo'],9:['tokyo'],10:['tokyo']};
 const WX_M=['ecmwf_ifs025','gfs_seamless','jma_seamless'];
 let WX=null, WX_BUSY=false, WX_FAIL=false;
 try{ const c=JSON.parse(localStorage.getItem('jt-wx')||'null'); if(c&&c.t&&c.days) WX=c; }catch(e){}
@@ -389,11 +389,11 @@ function wxSum(key,date){ const r=WX&&WX.days[date]&&WX.days[date][key]; if(!r) 
   return {wet,kind,cl,rainTxt,agree,lone:!wet&&votes===1,tmin:r.tmin,tmax:r.tmax,n:Math.max(rains.length,clouds.length)}; }
 function wxCall(d){ const S=(k,dt)=>wxSum(k,dt)||{}; const D=n=>DAYS[n-1].date; const wet=(k,n)=>!!S(k,D(n)).wet;
   if(d.n===2){ const s=S('tokyo',d.date); if(!s.kind) return ''; return (s.wet||s.kind==='grey')?'Use the grey-day line: a short garden visit, and skip the sky bar if the cloud sits low.':'Fine: the garden and the sky bar are both on.'; }
-  if(d.n===3||d.n===4){ const w3=wet('fuji',3)||wet('ito',3), w4=wet('ito',4)||wet('hakone',4); if(!S('ito',D(3)).kind) return '';
-    if(w3&&!w4) return d.n===3?'Flip the drive days: expressway to Ito and Tokaikan today, the views tomorrow (the rain version below).':'This is the clear drive day: it carries the views, the waterfall and the lake (see Wednesday’s rain version).';
-    if(w3&&w4) return 'Both drive days look wet: take the expressway to Ito and decide the rest on Thursday morning.';
-    if(!w3&&w4) return d.n===3?'Today is the better drive day: do every view you can; tomorrow looks wet.':'Wet: keep it to Tokaikan, the tea house and the expressway home.';
-    if(d.n===3) return 'Drive as planned.'; const c=S('ito',d.date).cl; return 'Drive as planned. Jogasaki sunrise '+(c!=null&&c<=50?'is worth the 06:00 start.':'may be hidden: sleep in if the sky is grey.'); }
+  if(d.n===3||d.n===4){ const w3=wet('hakone',3)||wet('ito',3), w4=wet('fuji',4)||wet('hakone',4); if(!S('hakone',D(3)).kind) return '';
+    if(w3&&!w4) return d.n===3?'Wet, as planned for: the museum, the tea house, the coast road and Tokaikan. The views are tomorrow.':'The clear drive day, as planned: every view is on it.';
+    if(w3&&w4) return d.n===3?'Both drive days look wet: today as planned.':'Wet as well: drive the Turnpike, skip the lakes if Fuji is hidden, and head home early.';
+    if(!w3&&w4) return d.n===3?'Today now looks drier than tomorrow: swap back (the line below) and take the Fuji lakes today.':'Wet: if you swapped back, keep it to the tea house, the Turnpike and the expressway home.';
+    if(d.n===3) return 'Drier than forecast: as planned, with more time on the museum lawns.'; const c=S('ito',d.date).cl; return 'Drive as planned. Jogasaki sunrise '+(c!=null&&c<=50?'is worth the 06:00 start.':'may be hidden: sleep in if the sky is grey.'); }
   if(d.n===5){ const s=S('kyoto',d.date); if(!s.kind) return ''; return s.wet?'Rain: Enkōji still works from under the roof; pick teamLab for the evening.':'Dry: the garden gets the afternoon light.'; }
   if(d.n===6){ const m=S('mitarai',d.date), n=S('nara',d.date); if(!m.kind) return ''; if(m.wet) return 'Drop the car: cancel the rental by Friday night and use the no-car line.'; return 'Keep the car.'+((n.wet||n.kind==='grey')?' The Nara sunset may have no sky.':''); }
   if(d.n===7){ const k=S('kyoto',d.date), f=S('fuji',d.date); if(!k.kind) return ''; return (k.wet?'Rain suits the moss gardens; carry an umbrella. ':'')+(f.cl!=null?(f.cl<=40&&!f.wet?'Fuji should show from seat E.':'Fuji may be in cloud from the train.'):''); }
