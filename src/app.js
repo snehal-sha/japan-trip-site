@@ -331,7 +331,7 @@ function renderShop(){ const sdone=window.SHOPPING.filter((_,i)=>isChecked('shop
 function renderCheck(){ $('#view-check').innerHTML=`<div class="stack"><div class="card flat"><span class="eyebrow">Before, during, after</span><div class="h-row"><span class="sticker lg">${ICON('daruma')}</span><h1>Checklist</h1></div></div>${window.CHECKLISTS.map(g=>{const done=g.items.filter(i=>isChecked(i.id)).length; const gi=['sparkle','lantern','robot','bag','daruma'][window.CHECKLISTS.indexOf(g)]||'onigiri'; return `<div class="card"><div class="day-head"><span class="sticker">${ICON(gi)}</span><h2>${esc(g.group)}</h2><span class="muted mono small">${done}/${g.items.length}</span></div><div class="progress"><i style="width:${done/g.items.length*100}%"></i></div>${g.items.map(i=>`<div class="check${isChecked(i.id)?' done':''}"><input type="checkbox" id="c-${i.id}" data-check="${i.id}" ${isChecked(i.id)?'checked':''}><label for="c-${i.id}">${esc(i.text)}${i.ref&&ALL[i.ref]?` <button class="chip ${ALL[i.ref].src==='you'?'you':'pick'} pl" style="border:0;cursor:pointer" data-place="${i.ref}">${esc(ALL[i.ref].name.split(' (')[0])}</button>`:''}</label></div>`).join('')}</div>`;}).join('')}</div>`; }
 
 // ---------- budget ----------
-const SLOT=['s1','s2','s3','s4','s5','s6','s7','s8'];
+const SLOT=['s1','s2','s3','s4','s5','s6','s7','s8','s9'];
 function planFor(c){const o=STATE.budget.over[c.key]; return (o!=null&&!isNaN(o))?Number(o):c[STATE.budget.tier];}
 function paidList(){return (window.BUDGET&&window.BUDGET.paid)||[];}
 function spentFor(key){return paidList().concat(STATE.expenses).filter(e=>e.cat===key).reduce((a,e)=>a+Number(e.amt||0),0);}

@@ -421,7 +421,7 @@ window.CHECKLISTS = [
    {id:'d4', text:'Forex card + one credit card in your own name (Fun2Drive deposit)'},
    {id:'d5', text:'¥30,000 cash on arrival (7-Bank ATM at Haneda); Fun2Drive is cash for the plan fee'},
    {id:'d6', text:'Thailand transit: Fly-Thru stays airside; visa-free entry for Indians is current, verify'},
-   {id:'d7', text:'Travel insurance that covers driving'},
+   {id:'d7', text:'Travel insurance BOUGHT Nov 15: ICICI Lombard TripSecure+ (Value), policy 4233/462536726/00/000, 15–26 Nov 2026, Asia, medical $100,000 incl. outpatient $10,000, liability $50,000, ₹2,235. Claims and medical help 24/7: +91 124 4498778 (call-back) or icicilombard@falck.com. Injuries while intoxicated are not covered'},
    {id:'d8', text:'Copies: passport, visa, IDP, bookings in a phone folder + email'}
  ]},
  {group:'Phone setup', items:[
@@ -461,6 +461,7 @@ window.BUDGET = {
   {key:'nights', label:'Nights out', lean:12000, mid:25000, splurge:45000, note:'5–6 drinking nights at ¥2,000–7,000'},
   {key:'tickets', label:'Tickets and experiences', lean:35000, mid:45000, splurge:52000, note:'Waraku sword session paid ₹10,634 (about ¥17,400), Skytree ¥2,100, Enkōji ¥1,500, Ohara ¥1,600, Tokaikan ¥500, Hakone Open-Air Museum ¥2,000, airsoft ¥3,000, Todai-ji ¥800; teamLab Biovortex only in splurge'},
   {key:'camera', label:'Camera', lean:60000, mid:80000, splurge:145000, note:'Used Fujifilm from the Guide shortlist. Lean: X-A5/X-T200 kit; mid: your ¥80,000 budget, an X-E3/X-T20 body with a lens; splurge: X-T30 II + XF 18-55 + spare battery and card'},
+  {key:'insurance', label:'Travel insurance', lean:3664, mid:3664, splurge:3664, note:'ICICI Lombard TripSecure+ Value, ₹2,235 paid Nov 15'},
   {key:'shopping', label:'Shopping', lean:96000, mid:165000, splurge:244000, note:'Your Nov 14 list without the keyboard (dropped Nov 14), priced item by item (low end ¥96,000, high end ¥244,000), with ¥5,000–20,000 for thrift and antique finds. Not included: the LSD PS1 game if found (¥30,000–60,000), Onitsuka Tiger (¥15,000–45,000), the amiibo emulator (order at home)'}
  ],
  // Bookings already paid. They count as spent on every device. amt is yen; inr is what the card was charged, when it was a rupee payment.
@@ -470,6 +471,7 @@ window.BUDGET = {
   {date:'2026-11-09', desc:'OnlyJDM MX-5, Nov 18–19 (2 days, Premium cover, ETC card)', amt:59180, cat:'cars'},
   {date:'', desc:'Nozomi 117 Tokyo → Kyoto, Nov 20 (smartEX)', amt:14170, cat:'transport'},
   {date:'2026-11-13', desc:'Nozomi 416 Kyoto → Tokyo, Nov 22 (smartEX)', amt:14170, cat:'transport'},
+  {date:'2026-11-15', desc:'ICICI Lombard travel insurance, 15–26 Nov (policy 4233/462536726/00/000)', amt:3664, inr:2235, cat:'insurance'},
   {date:'2026-11-11', desc:'Waraku samurai session, Nov 20 10:00 (Airbnb; ₹10,462 charged + ₹172 credit)', amt:17433, inr:10634.31, cat:'tickets'}
  ],
  // Booked but not charged yet, or paid on the day. Updated Nov 14. Not counted as spent until you log it.
