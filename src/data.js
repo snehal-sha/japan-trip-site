@@ -480,7 +480,8 @@ window.BUDGET = {
   {date:'2026-11-13', desc:'Nozomi 416 Kyoto → Tokyo, Nov 22 (smartEX)', amt:14170, cat:'transport'},
   {date:'2026-11-15', desc:'ICICI Lombard travel insurance, 15–26 Nov', amt:3664, inr:2235, cat:'insurance'},
   {date:'2026-11-11', desc:'Waraku samurai session, Nov 20 10:00 (Airbnb; ₹10,462 charged + ₹172 credit)', amt:17433, inr:10634.31, cat:'tickets'},
-  {date:'2026-11-17', desc:'Fujifilm camera and lens, Fujiya Camera Nakano (card charged in yen; about ¥10,190 back at Narita if rung up tax-free)', amt:112130, cat:'camera'}
+  {date:'2026-11-17', desc:'Fujifilm camera and lens, Fujiya Camera Nakano (card charged in yen; about ¥10,190 back at Narita if rung up tax-free)', amt:112130, cat:'camera'},
+  {date:'2026-11-17', desc:'Olympus Trip 35 film camera, Nakano Broadway (tag price; untested at the shop)', amt:4800, cat:'shopping'}
  ],
  // Booked but not charged yet, or paid on the day. Updated Nov 14. Not counted as spent until you log it.
  due: [
