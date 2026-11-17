@@ -163,20 +163,23 @@ window.DAYS = [
    {t:'22:30', ref:'s03', dur:40, note:'Your can’t-miss: the solo booth bowl, then buy the boxed Ichiran packets for home at the counter (5-packs, about ¥2,000; Don Quijote has them too if the shop is out). Bed by midnight.'},
    {t:'If late', title:'If the flight runs late', dur:0, note:'Skip Nakano tonight and do it tomorrow 09:45–11:30 before Gyoen; the camera still comes before anything else.'}
   ]},
- {n:2, date:'2026-11-17', dow:'Tue', title:'Gyoen maples, airsoft, Waseda ramen, Shimokita vinyl, Shinjuku tsukemen, Park Hyatt', tags:['nature','shopping','food','drinking'], base:'UNPLAN Shinjuku', budget:10000,
-  why:'Everything you rated 4 or 5 in west Tokyo, strung on short hops. Gyoen is the water-and-maples garden you asked for (closed Mondays, open today). On Nov 12 you dropped the Nakameguro pizza lunch: it was a detour, and you have had this wood-fired style at Pizza 4P’s. Your can’t-miss ramen moves up to lunch; Shimokitazawa covers two wants in one stop, thrift by weight and cheap vinyl; dinner is tsukemen a 12-minute walk from the Park Hyatt, which has no cover charge before 20:00.',
+ {n:2, date:'2026-11-17', dow:'Tue', title:'Camera day in Nakano, Waseda ramen, Shimokita vinyl, Shinjuku tsukemen, Golden Gai', tags:['shopping','food','drinking'], base:'UNPLAN Shinjuku', budget:10000,
+  why:'Re-ordered on the morning of Nov 17 for the weather: fully grey, dry until about 13:00, light rain from 14:00 and heavy rain from 20:00, so the day is indoors. The camera did not happen on arrival night (Map Camera was shut by 19:00), so it came first today at Fujiya, with the Nakano you rated 5 around it. Shinjuku Gyoen is off for today (you wanted nature on clear days), you dropped the airsoft range, and the New York Bar has no view in low cloud.',
   stops:[
-   {t:'09:00', ref:'p06', dur:80, note:'Shinjuku gate at opening, ¥500. The Japanese garden around the upper pond: maples just turning, carp, the tea house. Your water-and-foliage garden; Kiyosumi (your 4) is the same idea, so this one covers it.', travel:'Walk 10 min to Shinjuku Marui Men'},
-   {t:'11:00', ref:'p92', dur:60, note:'Opens 11:00, 8F of Marui Men. 30 min of airsoft lanes with a rental pistol, about ¥2,000–3,000; English-speaking range staff. Your “try airsoft once”, with no dedicated travel.', travel:'Walk 7 min to JR Shinjuku, Yamanote to Takadanobaba 4 min, Tozai line one stop to Waseda, walk 8 min; about 30 min in all'},
-   {t:'12:30', ref:'p100', dur:50, note:'Your can’t-miss ramen, now lunch: a ten-seat counter near Waseda with one spicy Korean-style ramen and one cold noodle, about ¥1,000 each, cash only, 11:30–21:00 daily. Waseda University is next door, so allow for a lunch queue.', travel:'Walk 8 min to Waseda, Tozai line to Takadanobaba, Yamanote to Shinjuku, Odakyu to Shimokitazawa; about 35 min'},
-   {t:'Dropped', ref:'p44', opt:true, dur:0, note:'Pizzeria Carlino’s (your 5) and its Seirinkan swap: dropped on Nov 12. Nakameguro was a detour and you have had this wood-fired style at Pizza 4P’s. If you change your mind, Carlino’s is open 11:30–18:00 today: message them on Instagram the day before.'},
-   {t:'14:20', ref:'p86', dur:40, note:'Thrift by the piece and by weight in an old bath house, 3 min from the station: your one thrift-by-weight concept.', travel:'Walk 5 min'},
-   {t:'15:00', ref:'s117', dur:45, note:'Cheap used LPs, ¥500–1,500: check the rock and prog bins for Pink Floyd. Open Tuesday 12:00–20:00.', travel:'Walk'},
-   {t:'15:45', ref:'p69', dur:90, note:'Wander the vintage lanes south of the station with the camera; coffee. Your “vinyl, old Tokyo” entry; the Pink Floyd rule is settled next door.', travel:'Odakyu to Shinjuku 8 min, walk 7 min from the south exit'},
-   {t:'17:40', ref:'s04', dur:45, note:'My pick for dinner in place of the pizza, and you kept it on Nov 13: Fuunji, the tsukemen counter locals queue for. Thick noodles you dip in a rich chicken-and-fish broth, about ¥1,100 from the ticket machine. The evening sitting opens at 17:00 and the queue is shortest early.', travel:'Walk 12 min to the Park Hyatt'},
-   {t:'19:00', ref:'p77', dur:60, note:'Be seated before 20:00 and there is no ¥2,750 cover. One drink, the night grid, the jazz trio. Smart-casual, no shorts.', travel:'Walk 15 min'},
-   {t:'20:30', ref:'s02', dur:90, note:'Two or three six-seat bars with a “no charge” sign. You are on a 10:00 car pickup tomorrow.'},
-   {t:'If grey', title:'Grey-day version (forecast of Nov 15: overcast all day, mostly dry, steady rain from about 22:00, 10–14°C)', dur:0, note:'Shinjuku Gyoen in drizzle: the greenhouse and the maple pond in 40 min, or skip it and sleep in. Everything from the airsoft range to Shimokitazawa is indoors or under cover. Skip the New York Bar if the cloud sits low: no view, and it was your 3. On the Nov 15 forecast the sky stays fully grey, two of three models keep it dry until about 22:00 (one shows light showers from mid-afternoon), so the bar at 19:00 should be dry but hazy: take the umbrella for Golden Gai.'},
+   {t:'11:15', ref:'p64', dur:100, note:'DONE: the Fujifilm and its lens were bought here on Nov 17, ¥112,130 on the card, charged in yen. Keep the receipt and the camera reachable for the tax refund at Narita.', travel:'Walk 2 min'},
+   {t:'13:00', ref:'p73', dur:50, note:'Indoors, and fully open by now: Mandarake Galaxy for retro consoles, the vintage-watch floor, the toy floors. My suggestion for a snack: the tall soft-serve at Daily Chiko in the basement. Hold the wallet: the real buying is Monday.', travel:'Walk 2 min'},
+   {t:'13:50', ref:'p22', dur:25, note:'Sun Mall (covered) and the izakaya alleys north of the station with the new camera in hand: this is the Nakano you rated 5.', travel:'Tozai line from Nakano straight to Waseda, about 10 min, then walk 8 min'},
+   {t:'14:40', ref:'p100', dur:45, note:'Your can’t-miss ramen as a late lunch, after the student rush: a ten-seat counter near Waseda with one spicy Korean-style ramen and one cold noodle, about ¥1,000 each, cash only, 11:30–21:00 daily.', travel:'Walk 8 min to Waseda, Tozai line to Takadanobaba, Yamanote to Shinjuku, Odakyu to Shimokitazawa; about 35 min'},
+   {t:'16:05', ref:'p86', dur:40, note:'Thrift by the piece and by weight in an old bath house, 3 min from the station: your one thrift-by-weight concept. Open until 20:00.', travel:'Walk 5 min'},
+   {t:'16:45', ref:'s117', dur:40, note:'Cheap used LPs, ¥500–1,500: check the rock and prog bins for Pink Floyd. Open Tuesday 12:00–20:00.', travel:'Walk'},
+   {t:'17:25', ref:'p69', dur:35, note:'The vintage lanes after dark under an umbrella, light rain; a coffee if it thickens. Keep the camera under the umbrella: it is not weather-sealed.', travel:'Odakyu to Shinjuku 8 min, walk 7 min from the south exit'},
+   {t:'Option', ref:'p20', opt:true, dur:0, note:'Instead of Shimokitazawa, to save 35 minutes of trains in the rain: Koenji, one stop west of Nakano on the Chuo line, 2 min. Vintage clothing and record shops under the covered Pal arcade, from your list. You would give up New York Joe and Flash Disc Ranch.'},
+   {t:'18:25', ref:'s04', dur:45, note:'My pick for dinner, and you kept it on Nov 13: Fuunji, the tsukemen counter locals queue for. Thick noodles you dip in a rich chicken-and-fish broth, about ¥1,100 from the ticket machine. Open 17:00–21:00; the queue stands outside, so bring the umbrella.', travel:'Walk 15 min, or one stop on the Marunouchi line to Shinjuku-sanchome'},
+   {t:'19:30', ref:'s02', dur:75, note:'One or two six-seat bars with a “no charge” sign, five minutes from the hostel. The rain turns heavy after 20:00 and you have a 10:00 car pickup tomorrow: be back by 21:00.'},
+   {t:'Dropped', ref:'p06', opt:true, dur:0, note:'Shinjuku Gyoen: off for today, flat grey light and rain. If you still want it, Mon Nov 23 before the Gaien ginkgo avenue is the slot to look at; check that the garden is open on the holiday first.'},
+   {t:'Dropped', ref:'p92', opt:true, dur:0, note:'TARGET-1 airsoft range: you dropped it on Nov 17.'},
+   {t:'Dropped', ref:'p77', opt:true, dur:0, note:'New York Bar at the Park Hyatt (your 3): no view in low cloud and rain. Open until midnight if the sky lifts.'},
+   {t:'Dropped', ref:'p44', opt:true, dur:0, note:'Pizzeria Carlino’s (your 5) and its Seirinkan swap: dropped on Nov 12. Nakameguro was a detour and you have had this wood-fired style at Pizza 4P’s.'},
    {t:'Tonight', title:'Pack: the cabin suitcase comes with you', dur:0, note:'No luggage forwarding. The suitcase lies flat in the MX-5 boot (130 L, built for two 55 cm carry-ons) with the day-bag beside it; keep it under 25 cm thick. The boot locks, so at every stop the bag stays in it and nothing sits on the seats of a soft-top. Check out of UNPLAN with everything by 08:40.'}
   ]},
  {n:3, date:'2026-11-18', dow:'Wed', title:'Roadster day one, the wet one: Hakone Open-Air Museum, the thatched tea house, the coast road to Ito, Tokaikan', tags:['drive','culture','food'], base:'K’s House Ito Onsen', budget:45000, drive:true,
@@ -463,8 +466,8 @@ window.BUDGET = {
   {key:'cars', label:'Car: MX-5 two days', lean:80000, mid:84000, splurge:105000, note:'OnlyJDM MX-5 paid ¥59,180 (2 days, Premium cover, ETC card, phone mount, tax) + about 100 km over the 400 km allowance ¥5,500 + tolls ¥12,000 (ETC on the expressways; Izu Skyline and Turnpike by card) + fuel ¥6,500. The Kyoto rental day was dropped on Nov 12 (about ¥15,000 saved). The ¥50,000 deposit comes back'},
   {key:'food', label:'Food', lean:40000, mid:60000, splurge:90000, note:'¥4,500–10,000 a day; one omakase in splurge'},
   {key:'nights', label:'Nights out', lean:12000, mid:25000, splurge:45000, note:'5–6 drinking nights at ¥2,000–7,000'},
-  {key:'tickets', label:'Tickets and experiences', lean:35000, mid:45000, splurge:52000, note:'Waraku sword session paid ₹10,634 (about ¥17,400), Skytree ¥2,100, Enkōji ¥1,500, Ohara ¥1,600, Tokaikan ¥500, Hakone Open-Air Museum ¥2,000, airsoft ¥3,000, Todai-ji ¥800; teamLab Biovortex only in splurge'},
-  {key:'camera', label:'Camera', lean:60000, mid:80000, splurge:145000, note:'Used Fujifilm from the Guide shortlist. Lean: X-A5/X-T200 kit; mid: your ¥80,000 budget, an X-E3/X-T20 body with a lens; splurge: X-T30 II + XF 18-55 + spare battery and card'},
+  {key:'tickets', label:'Tickets and experiences', lean:35000, mid:45000, splurge:52000, note:'Waraku sword session paid ₹10,634 (about ¥17,400), Skytree ¥2,100, Enkōji ¥1,500, Ohara ¥1,600, Tokaikan ¥500, Hakone Open-Air Museum ¥2,000, Todai-ji ¥800; teamLab Biovortex only in splurge'},
+  {key:'camera', label:'Camera', lean:112130, mid:112130, splurge:112130, note:'Bought on Nov 17 at Fujiya Camera, Nakano: ¥112,130 on the card, charged in yen (about ₹68,400). Used Fujifilm prices in Tokyo ran well above the Guide shortlist. About ¥10,190 comes back at Narita if it was rung up tax-free'},
   {key:'insurance', label:'Travel insurance', lean:3664, mid:3664, splurge:3664, note:'ICICI Lombard TripSecure+ Value, ₹2,235 paid Nov 15'},
   {key:'shopping', label:'Shopping', lean:96000, mid:165000, splurge:244000, note:'Your Nov 14 list without the keyboard (dropped Nov 14), priced item by item (low end ¥96,000, high end ¥244,000), with ¥5,000–20,000 for thrift and antique finds. Not included: the LSD PS1 game if found (¥30,000–60,000), Onitsuka Tiger (¥15,000–45,000), the amiibo emulator (order at home)'}
  ],
@@ -476,7 +479,8 @@ window.BUDGET = {
   {date:'', desc:'Nozomi 117 Tokyo → Kyoto, Nov 20 (smartEX)', amt:14170, cat:'transport'},
   {date:'2026-11-13', desc:'Nozomi 416 Kyoto → Tokyo, Nov 22 (smartEX)', amt:14170, cat:'transport'},
   {date:'2026-11-15', desc:'ICICI Lombard travel insurance, 15–26 Nov', amt:3664, inr:2235, cat:'insurance'},
-  {date:'2026-11-11', desc:'Waraku samurai session, Nov 20 10:00 (Airbnb; ₹10,462 charged + ₹172 credit)', amt:17433, inr:10634.31, cat:'tickets'}
+  {date:'2026-11-11', desc:'Waraku samurai session, Nov 20 10:00 (Airbnb; ₹10,462 charged + ₹172 credit)', amt:17433, inr:10634.31, cat:'tickets'},
+  {date:'2026-11-17', desc:'Fujifilm camera and lens, Fujiya Camera Nakano (card charged in yen; about ¥10,190 back at Narita if rung up tax-free)', amt:112130, cat:'camera'}
  ],
  // Booked but not charged yet, or paid on the day. Updated Nov 14. Not counted as spent until you log it.
  due: [
@@ -496,8 +500,7 @@ window.BUDGET = {
   {label:'Food', lo:40000, hi:90000, note:'¥4,500–10,000 a day, with the wagyu dinner on Nov 23 (about ¥13,000)'},
   {label:'Nights out', lo:12000, hi:45000, note:'5–6 drinking nights, Golden Gai seat charges'},
   {label:'Local trains, buses, taxis', lo:14000, hi:18000, note:'Suica top-ups about ¥1,000 a day, two Kyoto taxis about ¥3,300'},
-  {label:'Entry tickets still to pay', lo:9000, hi:15000, note:'Gyoen ¥500, airsoft ¥3,000, Tōkaikan ¥500, Tōdai-ji ¥800, Ōhara ¥1,600, Skytree ¥2,100, parking; teamLab only at the top end'},
-  {label:'Camera', lo:60000, hi:145000, note:'Used Fujifilm; your plan is ¥80,000'},
+  {label:'Entry tickets still to pay', lo:6000, hi:12000, note:'Tōkaikan ¥500, Tōdai-ji ¥800, Ōhara ¥1,600, Skytree ¥2,100, parking; teamLab only at the top end'},
   {label:'Shopping list', lo:96000, hi:244000, note:'30 items from your Nov 14 list, keyboard dropped; thrift and antiques ¥5,000–20,000'}
  ]
 };
