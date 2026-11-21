@@ -485,12 +485,12 @@ window.BUDGET = {
   {date:'2026-11-17', desc:'Fujifilm camera and lens, Fujiya Camera Nakano (card charged in yen; about ¥10,190 back at Narita if rung up tax-free)', amt:112130, cat:'camera'},
   {date:'2026-11-17', desc:'Olympus Trip 35 film camera, Nakano Broadway (tag price; untested at the shop)', amt:4800, cat:'shopping'},
   {date:'2026-11-17', desc:'Village Vanguard, Shimokitazawa (novelties and gifts; about ¥16,000 as reported)', amt:16000, cat:'shopping'},
-  {date:'2026-11-20', desc:'Tokyo station coin locker 3316, first day (cash)', amt:900, cat:'transport'}
+  {date:'2026-11-20', desc:'Tokyo station coin locker 3316, first day (cash)', amt:900, cat:'transport'},
+  {date:'2026-11-15', desc:'The Pocket Hotel Kyoto Karasuma Gojo, Nov 21 (Agoda, charged US$166.85)', amt:25628, cat:'stay'}
  ],
  // Booked but not charged yet, or paid on the day. Updated Nov 14. Not counted as spent until you log it.
  due: [
   {when:'Nov 18, at check-in', desc:'K’s House Itō, Nov 18 (balance at the desk)', amt:4400, cat:'stay'},
-  {when:'Nov 18, card charged', desc:'The Pocket Hotel, Nov 21 (Agoda, pay later)', amt:25628, inr:15633, cat:'stay'},
   {when:'Booking.com', desc:'Tsukimi Hotel, Gion, Nov 20', amt:11000, cat:'stay'},
   {when:'Agoda', desc:'Nui. Hostel, Nov 22–25 (3 nights)', amt:23764, inr:14496, cat:'stay'},
   {when:'Nov 22, at the locker', desc:'Tokyo station coin locker 3316, days 2 and 3 (Nov 21–22)', amt:1800, cat:'transport'},
