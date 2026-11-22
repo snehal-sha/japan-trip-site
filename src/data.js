@@ -470,6 +470,7 @@ window.BUDGET = {
   {date:'2026-11-17', desc:'Olympus Trip 35 film camera, Nakano Broadway (tag price; untested at the shop)', amt:4800, cat:'shopping'},
   {date:'2026-11-17', desc:'Village Vanguard, Shimokitazawa (novelties and gifts; about ¥16,000 as reported)', amt:16000, cat:'shopping'},
   {date:'2026-11-20', desc:'Tokyo station coin locker 3316, first day (cash)', amt:900, cat:'transport'},
+  {date:'2026-11-22', desc:'Tokyo station coin locker 3316, days 2 and 3 (paid at pickup)', amt:1800, cat:'transport'},
   {date:'2026-11-15', desc:'The Pocket Hotel Kyoto Karasuma Gojo, Nov 21 (Agoda, charged US$166.85)', amt:25628, cat:'stay'}
  ],
  // Booked but not charged yet, or paid on the day. Updated Nov 14. Not counted as spent until you log it.
@@ -477,7 +478,6 @@ window.BUDGET = {
   {when:'Nov 18, at check-in', desc:'K’s House Itō, Nov 18 (balance at the desk)', amt:4400, cat:'stay'},
   {when:'Booking.com', desc:'Tsukimi Hotel, Gion, Nov 20', amt:11000, cat:'stay'},
   {when:'Agoda', desc:'Nui. Hostel, Nov 22–25 (3 nights)', amt:23764, inr:14496, cat:'stay'},
-  {when:'Nov 22, at the locker', desc:'Tokyo station coin locker 3316, days 2 and 3 (Nov 21–22)', amt:1800, cat:'transport'},
   {when:'Nov 20, at the gate', desc:'Enkōji entry, 14:00 slot', amt:1500, cat:'tickets'},
   {when:'Nov 19, at OnlyJDM', desc:'MX-5 over-km charge', amt:5500, cat:'cars'},
   {when:'Nov 18–19, ETC card', desc:'MX-5 tolls (expressways, Izu Skyline, Turnpike)', amt:12000, cat:'cars'},
