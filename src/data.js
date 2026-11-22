@@ -4,7 +4,7 @@ window.TRIP = {
   start: '2026-11-16', end: '2026-11-25',
   rateINRperJPY: 0.61,
   synced: '2026-11-08',
-  booked: ['Nozomi 117, Fri Nov 20, Tokyo 07:00 → Kyoto 09:12, car 15 seat 7-E, smartEX reservation 2001, ¥14,170. Boarding method is QR-ticket: either print or show the QR, or designate your Suica to the booking in the smartEX app and tap through the gate', 'Waraku samurai session (Kyoto Samurai Experience), Fri Nov 20, 10:00–11:45, Mibu, Kyoto: booked on Airbnb on Nov 11, 1 guest, ₹10,634.31. Free cancellation until Nov 19, 10:00 Japan time', 'Enkōji temple, Fri Nov 20, 14:00 entry slot, one person: reserved on Nov 11, ¥1,500 payable at the gate', 'Nozomi 416, Sun Nov 22, Kyoto 14:36 → Tokyo 16:51, car 14 seat 10-E (Fuji side), smartEX reservation 2005, ¥14,170, booked Nov 13. Same boarding as the outbound: QR-ticket or a designated Suica'],
+  booked: ['Nozomi 117, Fri Nov 20, Tokyo 07:00 → Kyoto 09:12, car 15 seat 7-E, smartEX reservation 2001, ¥14,170. Boarding method is QR-ticket: either print or show the QR, or designate your Suica to the booking in the smartEX app and tap through the gate', 'Waraku samurai session (Kyoto Samurai Experience), Fri Nov 20, 10:00–11:45, Mibu, Kyoto: booked on Airbnb on Nov 11, 1 guest, ₹10,634.31. Free cancellation until Nov 19, 10:00 Japan time', 'Enkōji temple, Fri Nov 20, 14:00 entry slot, one person: reserved on Nov 11, ¥1,500 payable at the gate', 'Nozomi 184, Sun Nov 22, Kyoto 18:30 → Tokyo 20:45, car 16 seat 7-D, smartEX reservation 2005, ¥14,170 (changed on Nov 22 from Nozomi 416 at 14:36, no extra charge). Same boarding as the outbound: QR-ticket or a designated Suica'],
   flights: {
     out: 'VN982 BLR T2 23:40 Nov 15 → HAN 05:45 · VN384 HAN 08:20 → Haneda T3 15:05 Nov 16 (Vietnam Airlines, booking EL76C4, 1 checked bag of 23 kg; times as changed by the airline on Nov 15, change accepted by phone. Online check-in is blocked: check in at the counter by 20:00 with the passport, visa and the AirAsia return ticket)',
     back: 'XJ603 Narita T2 11:10 Nov 25 → Don Mueang 16:50 · FD137 20:10 → BLR 22:30 (Thai AirAsia, 25 kg checked + 7 kg cabin)'
@@ -411,7 +411,7 @@ window.CHECKLISTS = [
    {id:'b8', text:'Optional, my suggestion (OnlyJDM has not asked for it): email info@only-jdm.com with order 2026110910256979 to confirm your documents. Needed at the desk on Nov 18 either way: the physical Indian licence (manual, held 3+ years), the IDP booklet from Kottayam RTO (1949 Geneva Convention), your passport and a card for the ¥50,000 deposit', ref:'s112'},
    {id:'b19', text:'Waraku samurai session (Kyoto Samurai Experience), Fri Nov 20 10:00–11:45: BOOKED and paid on Airbnb on Nov 11, 1 guest, ₹10,634.31 (₹10,462.11 charged + ₹172.20 credit). Free cancellation until Nov 19, 10:00 Japan time. Gates open 09:45; 20 minutes late or more means no entry. Meeting point (confirmed on the day): 111 Inabacho, Nakagyo (京都府京都市中京区因幡町111), opposite Rakuchu Elementary School. You arrive with a backpack only; on Nov 13 you drafted a reply to the host (backpack, 09:45 arrival, address check)', ref:'s121'},
    {id:'b9', text:'Enkōji, Fri Nov 20, 14:00 slot, one person: BOOKED on Nov 11 through the temple calendar. Check in between 14:00 and 14:59 or the booking counts as cancelled. Pay ¥1,500 at the gate; show the confirmation email or the screenshot of the confirmation page', ref:'p08'},
-   {id:'b10', text:'Return train is booked (Nozomi 416, Sun Nov 22, Kyoto 14:36 → Tokyo 16:51, car 14 seat 10-E, res. 2005, ¥14,170 paid Nov 13): designate your Suica to it in smartEX, or save the QR-ticket offline'},
+   {id:'b10', text:'Return train is booked (Nozomi 184, Sun Nov 22, Kyoto 18:30 → Tokyo 20:45, car 16 seat 7-D, res. 2005, ¥14,170; changed on Nov 22 from the 14:36, balance ¥0): designate your Suica to it in smartEX, or save the QR-ticket offline'},
    {id:'b11', text:'Tables: Ikki in Ito Nov 18 20:15 (0557-36-2037); the Blue Room or Ushigoro Nov 23 18:30', ref:'p101'},
    {id:'b18', text:'Optional: teamLab Planets Thu Nov 19 19:30 slot (teamlab.art) instead of the slow dinner', ref:'p84', ref:'p84'},
    {id:'b12', text:'Tokyo Skytree timed ticket, Tembo Deck ¥2,100 online (¥2,400 at the door): buy it on Sun Nov 22 night for the clearer evening, Tue Nov 24 17:15 by default', ref:'p34', ref:'p34'},
@@ -479,7 +479,7 @@ window.BUDGET = {
   {date:'', desc:'Manga Art Hotel, Kanda, Nov 19 (Booking.com, non-refundable)', amt:4861, inr:2965, cat:'stay'},
   {date:'2026-11-09', desc:'OnlyJDM MX-5, Nov 18–19 (2 days, Premium cover, ETC card)', amt:59180, cat:'cars'},
   {date:'', desc:'Nozomi 117 Tokyo → Kyoto, Nov 20 (smartEX)', amt:14170, cat:'transport'},
-  {date:'2026-11-13', desc:'Nozomi 416 Kyoto → Tokyo, Nov 22 (smartEX)', amt:14170, cat:'transport'},
+  {date:'2026-11-13', desc:'Nozomi 184 Kyoto → Tokyo, Nov 22 (smartEX, changed from Nozomi 416)', amt:14170, cat:'transport'},
   {date:'2026-11-15', desc:'ICICI Lombard travel insurance, 15–26 Nov', amt:3664, inr:2235, cat:'insurance'},
   {date:'2026-11-11', desc:'Waraku samurai session, Nov 20 10:00 (Airbnb; ₹10,462 charged + ₹172 credit)', amt:17433, inr:10634.31, cat:'tickets'},
   {date:'2026-11-17', desc:'Fujifilm camera and lens, Fujiya Camera Nakano (card charged in yen; about ¥10,190 back at Narita if rung up tax-free)', amt:112130, cat:'camera'},
