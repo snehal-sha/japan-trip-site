@@ -19,7 +19,7 @@ function hav(a,b){const R=6371,toR=x=>x*Math.PI/180;const dLat=toR(b.lat-a.lat),
 function estHop(km,drive){ if(drive) return {min:Math.round(km/35*60+5),mode:'drive'}; if(km<1.3) return {min:Math.round(km/4.5*60),mode:'walk'}; return {min:Math.round(12+km*2.2),mode:'transit'}; }
 const ICON=(n,c='')=>`<svg class="ico ${c}" aria-hidden="true"><use href="#k-${n}"/></svg>`;
 const TAB_ICON={today:'daruma',days:'train',rate:'sparkle',stats:'shiba',map:'fuji',places:'lantern',shop:'bag',check:'sparkle',budget:'yen',guide:'neko'};
-const DAY_MASCOT={1:'robot',2:'camera',3:'car',4:'fuji',5:'torii',6:'momiji',7:'deer',8:'controller',9:'skytree',10:'plane'};
+const DAY_MASCOT={1:'robot',2:'camera',3:'car',4:'fuji',5:'torii',6:'momiji',7:'deer',8:'controller',9:'skytree',10:'momiji',11:'skytree',12:'plane'};
 const TAG_ICON={cyberpunk:'robot',drinking:'beer',shopping:'bag',vintage:'camera',drive:'car',nature:'momiji',chill:'onsen',countryside:'ginkgo',culture:'torii',food:'ramen',spirituality:'torii',anime:'controller',arcade:'controller',travel:'plane'};
 function catIcon(p){const t=((p.cat||'')+' '+(p.list||'')).toLowerCase(); const has=r=>r.test(t);
   if(has(/hotel|hostel|inn|ryokan/)) return 'onsen'; if(has(/car rental|jdm|toll road|cafe/)&&!has(/dog/)) return 'car'; if(has(/dog cafe/)) return 'shiba';
